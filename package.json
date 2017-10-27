@@ -76,5 +76,10 @@
   "maintainers": [],
   "contributors": [
     "Richard Walker (https://github.com/digitalsadhu)"
-  ]
+  ],
+  "dependencies": {
+    "asset-pipe-build-server": "^2.0.1",
+    "asset-pipe-client": "^2.0.0",
+    "supertest": "^3.0.0"
+  }
 }

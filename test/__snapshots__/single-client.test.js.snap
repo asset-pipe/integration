@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client gets bundled css file from build server 1`] = `
+"html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+h1 {
+    color: #000000;
+    size: 32px;
+}"
+`;
+
+exports[`Client gets bundled js file from build server 1`] = `
+"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({\\"a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8\\":[function(require,module,exports){
+'use strict';
+
+const { hello } = require('./lib');
+
+console.log(hello());
+
+},{\\"./lib\\":\\"e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea\\"}],\\"e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea\\":[function(require,module,exports){
+'use strict';
+
+module.exports.hello = function hello() {
+    console.log('hello');
+};
+
+},{}]},{},[\\"a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8\\"]);
+"
+`;
+
+exports[`Client gets uploaded css feed from build server 1`] = `
+Array [
+  Object {
+    "content": "html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+h1 {
+    color: #000000;
+    size: 32px;
+}",
+    "file": "integration/assets/style.css",
+    "id": "08ed8043d057e86cb3eb9e537fdf988a02763e8af134082549555780a2994080",
+    "name": "integration",
+    "version": "1.0.0",
+  },
+]
+`;
+
+exports[`Client gets uploaded js feed from build server 1`] = `
+Array [
+  Object {
+    "deps": Object {
+      "./lib": "e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea",
+    },
+    "entry": true,
+    "expose": false,
+    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/index.js",
+    "id": "a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8",
+    "index": 1,
+    "indexDeps": Object {
+      "./lib": 2,
+    },
+    "order": 0,
+    "source": "'use strict';
+
+const { hello } = require('./lib');
+
+console.log(hello());
+",
+  },
+  Object {
+    "deps": Object {},
+    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/lib.js",
+    "id": "e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea",
+    "index": 2,
+    "indexDeps": Object {},
+    "source": "'use strict';
+
+module.exports.hello = function hello() {
+    console.log('hello');
+};
+",
+  },
+]
+`;
+
+exports[`Client requests bundling of a css feed on build server 1`] = `
+Object {
+  "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "http://127.0.0.1:7100/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+}
+`;
+
+exports[`Client requests bundling of a js feed on build server 1`] = `
+Object {
+  "file": "c20d40da88b1c700dab718d2d78d1000988c87ef2fd433a22843beff107eef48.js",
+  "uri": "http://127.0.0.1:7100/bundle/c20d40da88b1c700dab718d2d78d1000988c87ef2fd433a22843beff107eef48.js",
+}
+`;
+
+exports[`Client uploads a css feed to build server 1`] = `
+Object {
+  "file": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+  "id": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94",
+  "uri": "http://127.0.0.1:7100/feed/729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+}
+`;
+
+exports[`Client uploads a js feed to build server 1`] = `
+Object {
+  "file": "5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6.json",
+  "id": "5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6",
+  "uri": "http://127.0.0.1:7100/feed/5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6.json",
+}
+`;
