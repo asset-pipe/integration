@@ -4,7 +4,12 @@
   "description": "Integration verification module",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "lint:format": "eslint --fix .",
+    "lint": "eslint .",
+    "precommit": "lint-staged",
+    "cm": "git-cz",
+    "readme": "projectz compile"
   },
   "repository": {
     "type": "git",
@@ -20,5 +25,56 @@
   "bugs": {
     "url": "https://github.com/asset-pipe/integration/issues"
   },
-  "homepage": "https://github.com/asset-pipe/integration#readme"
+  "homepage": "https://github.com/asset-pipe/integration#readme",
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-finn": "^3.0.0",
+    "eslint-config-finn-prettier": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "prettier": "^1.7.4",
+    "projectz": "^1.4.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix --config ./.eslintrc",
+      "git add"
+    ],
+    "{package.json,README.md,LICENSE.md}": [
+      "projectz compile",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "badges": {
+    "list": [
+      "travisci",
+      "npmversion",
+      "daviddm",
+      "daviddmdev"
+    ]
+  },
+  "maintainers": [],
+  "contributors": [
+    "Richard Walker (https://github.com/digitalsadhu)"
+  ]
 }
