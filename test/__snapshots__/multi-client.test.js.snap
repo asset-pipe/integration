@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client gets bundled css file from build server 1`] = `
+"body {
+    margin: 0;
+    padding: 0;
+}
+
+.b-title {
+    color: red;
+}body {
+    margin: 0;
+    padding: 0;
+}
+
+.c-title {
+    color: green;
+}body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-title {
+    color: blue;
+}"
+`;
+
+exports[`Client gets bundled js file from build server 1`] = `
+"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({\\"3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be\\":[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+
+},{\\"./d\\":\\"a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add\\"}],\\"56b86ab1072571a4efb08c9e5645d7ad7b442043bc29370df7212d1e7743e6ae\\":[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(5, 6);
+
+},{\\"./d\\":\\"a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add\\"}],\\"82dd5eababe4c7ae7aeaa58e74cf83badd9d6066b08e6e6c1eb7a2935cf11d79\\":[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(3, 4);
+
+},{\\"./d\\":\\"a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add\\"}],\\"a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add\\":[function(require,module,exports){
+'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+
+},{}]},{},[\\"82dd5eababe4c7ae7aeaa58e74cf83badd9d6066b08e6e6c1eb7a2935cf11d79\\",\\"56b86ab1072571a4efb08c9e5645d7ad7b442043bc29370df7212d1e7743e6ae\\",\\"3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be\\"]);
+"
+`;
+
+exports[`Client requests bundling of a cssjs feed on build server 1`] = `
+Object {
+  "file": "b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
+  "uri": "http://127.0.0.1:7200/bundle/b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
+}
+`;
+
+exports[`Client requests bundling of a js feed on build server 1`] = `
+Object {
+  "file": "7b5ad7930d053cd4c13de50de826dc5908ff39a5b4a790fcb6dd6d462b4bb70a.js",
+  "uri": "http://127.0.0.1:7200/bundle/7b5ad7930d053cd4c13de50de826dc5908ff39a5b4a790fcb6dd6d462b4bb70a.js",
+}
+`;
+
+exports[`Multiple clients get uploaded css feeds from build server 1`] = `
+Array [
+  Array [
+    Object {
+      "content": "body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-title {
+    color: blue;
+}",
+      "file": "integration/assets/a.css",
+      "id": "156a52b8cbf70db705a3b52603288c0c13a028a7fe70c00db8e6fef6862868bb",
+      "name": "integration",
+      "version": "1.0.0",
+    },
+  ],
+  Array [
+    Object {
+      "content": "body {
+    margin: 0;
+    padding: 0;
+}
+
+.b-title {
+    color: red;
+}",
+      "file": "integration/assets/b.css",
+      "id": "4a057822ed3f288597c76d74a5fc8ec8f821e39b7b37373055d0c192865734cd",
+      "name": "integration",
+      "version": "1.0.0",
+    },
+  ],
+  Array [
+    Object {
+      "content": "body {
+    margin: 0;
+    padding: 0;
+}
+
+.c-title {
+    color: green;
+}",
+      "file": "integration/assets/c.css",
+      "id": "9390bbbfa66b58e91a72284054bfcffff4624d7095fb16aa0656f7c75c3719ec",
+      "name": "integration",
+      "version": "1.0.0",
+    },
+  ],
+]
+`;
+
+exports[`Multiple clients get uploaded js feeds from build server 1`] = `
+Array [
+  Array [
+    Object {
+      "deps": Object {
+        "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      },
+      "entry": true,
+      "expose": false,
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/a.js",
+      "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+      "index": 1,
+      "indexDeps": Object {
+        "./d": 2,
+      },
+      "order": 0,
+      "source": "'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+",
+    },
+    Object {
+      "deps": Object {},
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/d.js",
+      "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "index": 2,
+      "indexDeps": Object {},
+      "source": "'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+",
+    },
+  ],
+  Array [
+    Object {
+      "deps": Object {
+        "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      },
+      "entry": true,
+      "expose": false,
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/b.js",
+      "id": "82dd5eababe4c7ae7aeaa58e74cf83badd9d6066b08e6e6c1eb7a2935cf11d79",
+      "index": 1,
+      "indexDeps": Object {
+        "./d": 2,
+      },
+      "order": 0,
+      "source": "'use strict';
+
+const sum = require('./d');
+
+sum(3, 4);
+",
+    },
+    Object {
+      "deps": Object {},
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/d.js",
+      "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "index": 2,
+      "indexDeps": Object {},
+      "source": "'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+",
+    },
+  ],
+  Array [
+    Object {
+      "deps": Object {
+        "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      },
+      "entry": true,
+      "expose": false,
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/c.js",
+      "id": "56b86ab1072571a4efb08c9e5645d7ad7b442043bc29370df7212d1e7743e6ae",
+      "index": 1,
+      "indexDeps": Object {
+        "./d": 2,
+      },
+      "order": 0,
+      "source": "'use strict';
+
+const sum = require('./d');
+
+sum(5, 6);
+",
+    },
+    Object {
+      "deps": Object {},
+      "file": "/Users/ricwalke/src/asset-pipe/integration/assets/d.js",
+      "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "index": 2,
+      "indexDeps": Object {},
+      "source": "'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+",
+    },
+  ],
+]
+`;
+
+exports[`Multiple clients upload css feeds to build server 1`] = `
+Array [
+  Object {
+    "file": "a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940.json",
+    "id": "a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940",
+    "uri": "http://127.0.0.1:7200/feed/a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940.json",
+  },
+  Object {
+    "file": "f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99.json",
+    "id": "f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99",
+    "uri": "http://127.0.0.1:7200/feed/f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99.json",
+  },
+  Object {
+    "file": "6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f.json",
+    "id": "6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f",
+    "uri": "http://127.0.0.1:7200/feed/6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f.json",
+  },
+]
+`;
+
+exports[`Multiple clients upload js feeds to build server 1`] = `
+Array [
+  Object {
+    "file": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+    "id": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73",
+    "uri": "http://127.0.0.1:7200/feed/6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+  },
+  Object {
+    "file": "3e6959606e707cb36e7d538c72218bb72e4fe86c80f0666316135d933c77919e.json",
+    "id": "3e6959606e707cb36e7d538c72218bb72e4fe86c80f0666316135d933c77919e",
+    "uri": "http://127.0.0.1:7200/feed/3e6959606e707cb36e7d538c72218bb72e4fe86c80f0666316135d933c77919e.json",
+  },
+  Object {
+    "file": "4c1a028075723f52e7c04e4d85bcbd78b7838a25a419730053ea0242ee8f76e8.json",
+    "id": "4c1a028075723f52e7c04e4d85bcbd78b7838a25a419730053ea0242ee8f76e8",
+    "uri": "http://127.0.0.1:7200/feed/4c1a028075723f52e7c04e4d85bcbd78b7838a25a419730053ea0242ee8f76e8.json",
+  },
+]
+`;
