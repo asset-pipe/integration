@@ -80,6 +80,7 @@
   "dependencies": {
     "asset-pipe-build-server": "^2.0.1",
     "asset-pipe-client": "^2.0.0",
+    "http-proxy": "^1.16.2",
     "supertest": "^3.0.0"
   }
 }
