@@ -8,6 +8,14 @@ const client = new Client({ buildServerUri });
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
 
+const localiseBodyPaths = body =>
+    JSON.parse(
+        JSON.stringify(body, null, 2).replace(
+            /"file":\s".*\/asset-pipe\//g,
+            '"file": "'
+        )
+    );
+
 let server;
 beforeAll(
     () =>
@@ -43,7 +51,7 @@ test('Client gets uploaded js feed from build server', async () => {
         .set('Accept', 'application/json')
         .expect('Content-Type', /application\/json/)
         .expect(200);
-    expect(body).toMatchSnapshot();
+    expect(localiseBodyPaths(body)).toMatchSnapshot();
 });
 
 test('Client uploads a css feed to build server', async () => {

@@ -17,6 +17,14 @@ const get = async url => {
     return body;
 };
 
+const localiseBodyPaths = body =>
+    JSON.parse(
+        JSON.stringify(body, null, 2).replace(
+            /"file":\s".*\/asset-pipe\//g,
+            '"file": "'
+        )
+    );
+
 let server;
 beforeAll(
     () =>
@@ -75,7 +83,7 @@ test('Multiple clients get uploaded js feeds from build server', async () => {
         get(`/feed/${f2}`),
         get(`/feed/${f3}`),
     ]);
-    expect(result).toMatchSnapshot();
+    expect(localiseBodyPaths(result)).toMatchSnapshot();
 });
 
 test('Multiple clients get uploaded css feeds from build server', async () => {

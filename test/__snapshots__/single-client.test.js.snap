@@ -245,7 +245,7 @@ Array [
     },
     "entry": true,
     "expose": false,
-    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/index.js",
+    "file": "integration/assets/index.js",
     "id": "a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8",
     "index": 1,
     "indexDeps": Object {
@@ -261,7 +261,7 @@ console.log(hello());
   },
   Object {
     "deps": Object {},
-    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/lib.js",
+    "file": "integration/assets/lib.js",
     "id": "e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea",
     "index": 2,
     "indexDeps": Object {},
