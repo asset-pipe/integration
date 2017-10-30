@@ -116,7 +116,7 @@ test('Client requests bundling of a js feed on build server', async () => {
     expect(bundleResponse).toMatchSnapshot();
 });
 
-test('Client requests bundling of a cssjs feed on build server', async () => {
+test('Client requests bundling of a css feed on build server', async () => {
     const css1 = join(__dirname, '..', 'assets', 'a.css');
     const css2 = join(__dirname, '..', 'assets', 'b.css');
     const css3 = join(__dirname, '..', 'assets', 'c.css');

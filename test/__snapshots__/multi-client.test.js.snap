@@ -58,7 +58,7 @@ module.exports = function sum(a, b) {
 "
 `;
 
-exports[`Client requests bundling of a cssjs feed on build server 1`] = `
+exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
   "file": "b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
   "uri": "http://127.0.0.1:7200/bundle/b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
