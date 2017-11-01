@@ -36,7 +36,9 @@
     "jest": "^21.2.1",
     "lint-staged": "^4.3.0",
     "prettier": "^1.7.4",
-    "projectz": "^1.4.0"
+    "projectz": "^1.4.0",
+    "http-proxy": "^1.16.2",
+    "supertest": "^3.0.0"
   },
   "jest": {
     "testEnvironment": "node",
@@ -78,9 +80,14 @@
     "Richard Walker (https://github.com/digitalsadhu)"
   ],
   "dependencies": {
-    "asset-pipe-build-server": "^2.0.1",
-    "asset-pipe-client": "^2.0.0",
-    "http-proxy": "^1.16.2",
-    "supertest": "^3.0.0"
+    "asset-pipe-build-server": "*",
+    "asset-pipe-client": "*",
+    "asset-pipe-js-reader": "*",
+    "asset-pipe-js-writer": "*",
+    "asset-pipe-css-reader": "*",
+    "asset-pipe-css-writer": "*",
+    "asset-pipe-sink-mem": "*",
+    "asset-pipe-sink-fs": "*",
+    "asset-pipe-sink-gcs": "*"
   }
 }

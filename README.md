@@ -15,7 +15,43 @@
 <!-- /BADGES -->
 
 
-Integration verification module
+Integration verification module. Tests various integrated usage scenarios.
+
+## Areas of test coverage
+
+type | description
+---|---
+single client | Isolated single client to server feed upload and bundle
+multi client | Simultaneous multi client to single server feed upload and bundle
+scenario | Setups for more realistic real world scenarios
+
+### Single Client
+
+These tests verify simple correct behavior between a single instance of the asset-pipe-client and a 
+single asset-pipe-build-server.
+
+### Multi Client
+
+These tests verify more complex behavior between a multiple instances of the asset-pipe-client and a 
+single asset-pipe-build-server.
+
+### Scenarios
+
+These involve simulating a single coordinating server and multiple dependents.
+Dependents upload their js and css assets to the asset pipe build server. The coordinating server then also uploads
+its js and css assets to the build server before finally bundling everything together. Server latency is randomly 
+introduced during the process.
+
+## Goals
+
+- Provide test coverage of the integration of the various modules in the asset-pipe project
+- Give early warning if one of the asset-pipe modules publishes changes that break the integration of the project as a whole
+
+### Early warning
+
+Dependencies are set to latest and package lock is ignored. CI cache is not used. All this to ensure than when a test runs
+it runs against the latest versions of the asset-pipe-client and asset-pipe-build-server. Greenkeeper is also used to trigger
+runs whenever one of the asset-pipe modules is publishes a new version.
 
 ## Contributing
 
