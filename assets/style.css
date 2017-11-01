@@ -1,0 +1,6 @@
+@import './reset.css';
+
+h1 {
+    color: #000000;
+    size: 32px;
+}
