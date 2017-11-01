@@ -1,6 +1,6 @@
 'use strict';
 
-const { join } = require('path');
+const { resolve } = require;
 const { spawn } = require('child_process');
 const Client = require('asset-pipe-client');
 const buildServerUri = 'http://127.0.0.1:7100';
@@ -36,16 +36,14 @@ afterAll(() => {
 });
 
 test('Client uploads a js feed to build server', async () => {
-    const result = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'index.js'),
-    ]);
+    expect.assertions(1);
+    const result = await client.uploadFeed([resolve('../assets/index.js')]);
     expect(result).toMatchSnapshot();
 });
 
 test('Client gets uploaded js feed from build server', async () => {
-    const result = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'index.js'),
-    ]);
+    expect.assertions(1);
+    const result = await client.uploadFeed([resolve('../assets/index.js')]);
     const { body } = await request
         .get(`/feed/${result.file}`)
         .set('Accept', 'application/json')
@@ -55,16 +53,14 @@ test('Client gets uploaded js feed from build server', async () => {
 });
 
 test('Client uploads a css feed to build server', async () => {
-    const result = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'style.css'),
-    ]);
+    expect.assertions(1);
+    const result = await client.uploadFeed([resolve('../assets/style.css')]);
     expect(result).toMatchSnapshot();
 });
 
 test('Client gets uploaded css feed from build server', async () => {
-    const result = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'style.css'),
-    ]);
+    expect.assertions(1);
+    const result = await client.uploadFeed([resolve('../assets/style.css')]);
     const { body } = await request
         .get(`/feed/${result.file}`)
         .set('Accept', 'application/json')
@@ -74,8 +70,9 @@ test('Client gets uploaded css feed from build server', async () => {
 });
 
 test('Client requests bundling of a js feed on build server', async () => {
+    expect.assertions(1);
     const uploadResponse = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'index.js'),
+        resolve('../assets/index.js'),
     ]);
     const bundleResponse = await client.createRemoteBundle(
         [uploadResponse.file],
@@ -85,8 +82,9 @@ test('Client requests bundling of a js feed on build server', async () => {
 });
 
 test('Client gets bundled js file from build server', async () => {
+    expect.assertions(1);
     const uploadResponse = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'index.js'),
+        resolve('../assets/index.js'),
     ]);
     const bundleResponse = await client.createRemoteBundle(
         [uploadResponse.file],
@@ -99,8 +97,9 @@ test('Client gets bundled js file from build server', async () => {
 });
 
 test('Client requests bundling of a css feed on build server', async () => {
+    expect.assertions(1);
     const uploadResponse = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'style.css'),
+        resolve('../assets/style.css'),
     ]);
     const bundleResponse = await client.createRemoteBundle(
         [uploadResponse.file],
@@ -110,8 +109,9 @@ test('Client requests bundling of a css feed on build server', async () => {
 });
 
 test('Client gets bundled css file from build server', async () => {
+    expect.assertions(1);
     const uploadResponse = await client.uploadFeed([
-        join(__dirname, '..', 'assets', 'style.css'),
+        resolve('../assets/style.css'),
     ]);
     const bundleResponse = await client.createRemoteBundle(
         [uploadResponse.file],

@@ -1,6 +1,6 @@
 'use strict';
 
-const { join } = require('path');
+const { resolve } = require;
 const { spawn } = require('child_process');
 const Client = require('asset-pipe-client');
 const buildServerUri = 'http://127.0.0.1:8300';
@@ -51,8 +51,8 @@ afterAll(() => {
 });
 
 async function podlet(label) {
-    const js = join(__dirname, '..', 'assets', `${label}.js`);
-    const css = join(__dirname, '..', 'assets', `${label}.css`);
+    const js = resolve(`../assets/${label}.js`);
+    const css = resolve(`../assets/${label}.css`);
     const client = new Client({ buildServerUri });
     const [{ file: jsFeedFile }, { file: cssFeedFile }] = await Promise.all([
         client.uploadFeed([js]),
@@ -78,6 +78,7 @@ async function layout(label, podlets) {
 }
 
 test('Layout and 3 podlets - run 1 - initial', async () => {
+    expect.assertions(2);
     jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('a'), podlet('b'), podlet('c')]);
     const { jsFile, cssFile } = await layout('e', podlets);
@@ -95,6 +96,7 @@ test('Layout and 3 podlets - run 1 - initial', async () => {
 });
 
 test('Layout and 3 podlets - run 2 - identical to run 1', async () => {
+    expect.assertions(2);
     jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('a'), podlet('b'), podlet('c')]);
     const { jsFile, cssFile } = await layout('e', podlets);
@@ -112,6 +114,7 @@ test('Layout and 3 podlets - run 2 - identical to run 1', async () => {
 });
 
 test('Layout and 3 podlets - run 3 - swapped bundling order', async () => {
+    expect.assertions(2);
     jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('b'), podlet('c'), podlet('a')]);
     const { jsFile, cssFile } = await layout('e', podlets);

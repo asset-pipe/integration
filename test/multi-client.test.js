@@ -1,6 +1,6 @@
 'use strict';
 
-const { join } = require('path');
+const { resolve } = require;
 const { spawn } = require('child_process');
 const Client = require('asset-pipe-client');
 const buildServerUri = 'http://127.0.0.1:7200';
@@ -46,9 +46,10 @@ afterAll(() => {
 });
 
 test('Multiple clients upload js feeds to build server', async () => {
-    const js1 = join(__dirname, '..', 'assets', 'a.js');
-    const js2 = join(__dirname, '..', 'assets', 'b.js');
-    const js3 = join(__dirname, '..', 'assets', 'c.js');
+    expect.assertions(1);
+    const js1 = resolve('../assets/a.js');
+    const js2 = resolve('../assets/b.js');
+    const js3 = resolve('../assets/c.js');
     const result = await Promise.all([
         client.uploadFeed([js1]),
         client.uploadFeed([js2]),
@@ -58,9 +59,10 @@ test('Multiple clients upload js feeds to build server', async () => {
 });
 
 test('Multiple clients upload css feeds to build server', async () => {
-    const css1 = join(__dirname, '..', 'assets', 'a.css');
-    const css2 = join(__dirname, '..', 'assets', 'b.css');
-    const css3 = join(__dirname, '..', 'assets', 'c.css');
+    expect.assertions(1);
+    const css1 = resolve('../assets/a.css');
+    const css2 = resolve('../assets/b.css');
+    const css3 = resolve('../assets/c.css');
     const result = await Promise.all([
         client.uploadFeed([css1]),
         client.uploadFeed([css2]),
@@ -70,9 +72,10 @@ test('Multiple clients upload css feeds to build server', async () => {
 });
 
 test('Multiple clients get uploaded js feeds from build server', async () => {
-    const js1 = join(__dirname, '..', 'assets', 'a.js');
-    const js2 = join(__dirname, '..', 'assets', 'b.js');
-    const js3 = join(__dirname, '..', 'assets', 'c.js');
+    expect.assertions(1);
+    const js1 = resolve('../assets/a.js');
+    const js2 = resolve('../assets/b.js');
+    const js3 = resolve('../assets/c.js');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([js1]),
         client.uploadFeed([js2]),
@@ -87,9 +90,10 @@ test('Multiple clients get uploaded js feeds from build server', async () => {
 });
 
 test('Multiple clients get uploaded css feeds from build server', async () => {
-    const css1 = join(__dirname, '..', 'assets', 'a.css');
-    const css2 = join(__dirname, '..', 'assets', 'b.css');
-    const css3 = join(__dirname, '..', 'assets', 'c.css');
+    expect.assertions(1);
+    const css1 = resolve('../assets/a.css');
+    const css2 = resolve('../assets/b.css');
+    const css3 = resolve('../assets/c.css');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([css1]),
         client.uploadFeed([css2]),
@@ -104,9 +108,10 @@ test('Multiple clients get uploaded css feeds from build server', async () => {
 });
 
 test('Client requests bundling of a js feed on build server', async () => {
-    const js1 = join(__dirname, '..', 'assets', 'a.js');
-    const js2 = join(__dirname, '..', 'assets', 'b.js');
-    const js3 = join(__dirname, '..', 'assets', 'c.js');
+    expect.assertions(1);
+    const js1 = resolve('../assets/a.js');
+    const js2 = resolve('../assets/b.js');
+    const js3 = resolve('../assets/c.js');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([js1]),
         client.uploadFeed([js2]),
@@ -117,9 +122,10 @@ test('Client requests bundling of a js feed on build server', async () => {
 });
 
 test('Client requests bundling of a css feed on build server', async () => {
-    const css1 = join(__dirname, '..', 'assets', 'a.css');
-    const css2 = join(__dirname, '..', 'assets', 'b.css');
-    const css3 = join(__dirname, '..', 'assets', 'c.css');
+    expect.assertions(1);
+    const css1 = resolve('../assets/a.css');
+    const css2 = resolve('../assets/b.css');
+    const css3 = resolve('../assets/c.css');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([css1]),
         client.uploadFeed([css2]),
@@ -130,9 +136,10 @@ test('Client requests bundling of a css feed on build server', async () => {
 });
 
 test('Client gets bundled js file from build server', async () => {
-    const js1 = join(__dirname, '..', 'assets', 'a.js');
-    const js2 = join(__dirname, '..', 'assets', 'b.js');
-    const js3 = join(__dirname, '..', 'assets', 'c.js');
+    expect.assertions(1);
+    const js1 = resolve('../assets/a.js');
+    const js2 = resolve('../assets/b.js');
+    const js3 = resolve('../assets/c.js');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([js1]),
         client.uploadFeed([js2]),
@@ -146,9 +153,10 @@ test('Client gets bundled js file from build server', async () => {
 });
 
 test('Client gets bundled css file from build server', async () => {
-    const css1 = join(__dirname, '..', 'assets', 'a.css');
-    const css2 = join(__dirname, '..', 'assets', 'b.css');
-    const css3 = join(__dirname, '..', 'assets', 'c.css');
+    expect.assertions(1);
+    const css1 = resolve('../assets/a.css');
+    const css2 = resolve('../assets/b.css');
+    const css3 = resolve('../assets/c.css');
     const [{ file: f1 }, { file: f2 }, { file: f3 }] = await Promise.all([
         client.uploadFeed([css1]),
         client.uploadFeed([css2]),
