@@ -9,3 +9,4 @@ tmp/**/*
 coverage
 .vscode
 /assets/fs-sink
+gcs.json
