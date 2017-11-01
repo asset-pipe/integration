@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asset-pipe-sink-fs css bundle fetching 1`] = `Object {}`;
+
+exports[`asset-pipe-sink-fs css bundling 1`] = `
+Object {
+  "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+}
+`;
+
+exports[`asset-pipe-sink-fs css upload 1`] = `
+Object {
+  "file": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+  "id": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94",
+  "uri": "/feed/729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+}
+`;
+
+exports[`asset-pipe-sink-fs css upload feed fetching 1`] = `
+Array [
+  Object {
+    "content": "html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+h1 {
+    color: #000000;
+    size: 32px;
+}",
+    "file": "integration/assets/style.css",
+    "id": "08ed8043d057e86cb3eb9e537fdf988a02763e8af134082549555780a2994080",
+    "name": "integration",
+    "version": "1.0.0",
+  },
+]
+`;
+
+exports[`asset-pipe-sink-fs javascript bundle fetching 1`] = `Object {}`;
+
+exports[`asset-pipe-sink-fs javascript bundling 1`] = `
+Object {
+  "file": "904d6a02880e3e1fa9aba6fec7fbae2d40b8bc94c089f8d374503ef0f36a71ca.js",
+  "uri": "/bundle/904d6a02880e3e1fa9aba6fec7fbae2d40b8bc94c089f8d374503ef0f36a71ca.js",
+}
+`;
+
+exports[`asset-pipe-sink-fs javascript upload 1`] = `
+Object {
+  "file": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+  "id": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73",
+  "uri": "/feed/6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+}
+`;
+
+exports[`asset-pipe-sink-fs javascript upload feed fetching 1`] = `
+Array [
+  Object {
+    "deps": Object {
+      "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    },
+    "entry": true,
+    "expose": false,
+    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/a.js",
+    "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    "index": 1,
+    "indexDeps": Object {
+      "./d": 2,
+    },
+    "order": 0,
+    "source": "'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+",
+  },
+  Object {
+    "deps": Object {},
+    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/d.js",
+    "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    "index": 2,
+    "indexDeps": Object {},
+    "source": "'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+",
+  },
+]
+`;
