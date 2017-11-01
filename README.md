@@ -63,3 +63,11 @@ The contribution process is as follows:
 - Stage your changes.
 - Run `git commit` or, if you are not familiar with [semantic commit messages](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit), please run `npm run cm` and follow the prompts instead which will help you write a correct semantic commit message.
 - Push your changes and submit a PR.
+
+### A note on running tests locally
+
+Some tests (google sink tests) rely on credentials for google cloud storage. 
+These will run correctly on CI so you may need to rely on those if you don't have access to our travis setup.
+
+Credentials are encrypted using travis cli. https://github.com/travis-ci/travis.rb#encrypt-file
+which should also allow you to decrypt a copy for local use if you have access to our travis account.
