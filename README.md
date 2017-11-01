@@ -18,6 +18,8 @@ Integration verification module. Tests various integrated usage scenarios.
 
 ## Areas of test coverage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/integration.svg)](https://greenkeeper.io/)
+
 type | description
 ---|---
 single client | Isolated single client to server feed upload and bundle
