@@ -8,21 +8,27 @@ exports[`Client gets bundled css file from build server 1`] = `
 
 .b-title {
     color: red;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .c-title {
     color: green;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .a-title {
     color: blue;
-}"
+}
+
+"
 `;
 
 exports[`Client gets bundled js file from build server 1`] = `
@@ -60,8 +66,8 @@ module.exports = function sum(a, b) {
 
 exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
-  "file": "b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
-  "uri": "http://127.0.0.1:7200/bundle/b4857973583b2f96fad4ecd5752f33aa93806ba3e451ff65115b1aba6fe36f36.css",
+  "file": "55960ccd31726d68f266bff255570763dbf3d98cf5c6dd8028f3f3d2430b5451.css",
+  "uri": "http://127.0.0.1:7200/bundle/55960ccd31726d68f266bff255570763dbf3d98cf5c6dd8028f3f3d2430b5451.css",
 }
 `;
 

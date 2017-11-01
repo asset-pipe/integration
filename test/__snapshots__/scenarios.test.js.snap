@@ -43,28 +43,36 @@ module.exports = function sum(a, b) {
 exports[`Layout and 3 podlets - run 1 - initial 2`] = `
 ".e-title {
     color: black;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .a-title {
     color: blue;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .b-title {
     color: red;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .c-title {
     color: green;
-}"
+}
+
+"
 `;
 
 exports[`Layout and 3 podlets - run 2 - identical to run 1 1`] = `
@@ -110,28 +118,36 @@ module.exports = function sum(a, b) {
 exports[`Layout and 3 podlets - run 2 - identical to run 1 2`] = `
 ".e-title {
     color: black;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .a-title {
     color: blue;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .b-title {
     color: red;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .c-title {
     color: green;
-}"
+}
+
+"
 `;
 
 exports[`Layout and 3 podlets - run 3 - swapped bundling order 1`] = `
@@ -177,26 +193,34 @@ module.exports = function sum(a, b) {
 exports[`Layout and 3 podlets - run 3 - swapped bundling order 2`] = `
 ".e-title {
     color: black;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .b-title {
     color: red;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .c-title {
     color: green;
-}body {
+}
+
+body {
     margin: 0;
     padding: 0;
 }
 
 .a-title {
     color: blue;
-}"
+}
+
+"
 `;
