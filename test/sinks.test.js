@@ -132,6 +132,7 @@ describe('asset-pipe-sink-gcs', () => {
     let get;
 
     beforeAll(async () => {
+        jest.setTimeout(30000);
         const sink = new AssetSinkGCS(
             {
                 projectId: 'asset-pipe-184710', // 679641587805
