@@ -155,7 +155,7 @@ Array [
     },
     "entry": true,
     "expose": false,
-    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/a.js",
+    "file": "asset-pipe/integration/assets/a.js",
     "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
     "index": 1,
     "indexDeps": Object {
@@ -171,7 +171,7 @@ sum(1, 2);
   },
   Object {
     "deps": Object {},
-    "file": "/Users/ricwalke/src/asset-pipe/integration/assets/d.js",
+    "file": "asset-pipe/integration/assets/d.js",
     "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
     "index": 2,
     "indexDeps": Object {},

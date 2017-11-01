@@ -6,7 +6,6 @@ const supertest = require('supertest');
 const Client = require('asset-pipe-client');
 const AssetServer = require('asset-pipe-build-server');
 const AssetSinkFS = require('asset-pipe-sink-fs');
-// const AssetSinkGCS = require('asset-pipe-sink-gcs');
 
 async function startTestServer(sink) {
     const app = express();
@@ -29,8 +28,10 @@ function closeTestServer(server) {
 }
 
 function clean(data) {
-    const reg = /http:\/\/127\.0\.0\.1:[0-9]+\//g;
-    return JSON.parse(JSON.stringify(data, null, 2).replace(reg, '/'));
+    const reg1 = /http:\/\/127\.0\.0\.1:[0-9]+\//g;
+    const reg2 = /"(\/[A-Za-z]+)+\/asset-pipe/gm;
+    const str = JSON.stringify(data, null, 2).replace(reg1, '/');
+    return JSON.parse(str.replace(reg2, '"asset-pipe'));
 }
 
 describe('asset-pipe-sink-fs', () => {
@@ -66,7 +67,7 @@ describe('asset-pipe-sink-fs', () => {
         expect.assertions(1);
         const upload = await client.uploadFeed([resolve('assets/a.js')]);
         const { body } = await get(`/feed/${upload.file}`);
-        expect(body).toMatchSnapshot();
+        expect(clean(body)).toMatchSnapshot();
     });
 
     test('javascript bundling', async () => {
@@ -83,7 +84,7 @@ describe('asset-pipe-sink-fs', () => {
         const bundle = await client.createRemoteBundle([upload.file], 'js');
         const { body } = await get(`/feed/${bundle.file}`);
 
-        expect(body).toMatchSnapshot();
+        expect(clean(body)).toMatchSnapshot();
     });
 
     test('css upload', async () => {
@@ -100,7 +101,7 @@ describe('asset-pipe-sink-fs', () => {
         const upload = await client.uploadFeed(feeds);
         const { body } = await get(`/feed/${upload.file}`);
 
-        expect(body).toMatchSnapshot();
+        expect(clean(body)).toMatchSnapshot();
     });
 
     test('css bundling', async () => {
@@ -119,20 +120,6 @@ describe('asset-pipe-sink-fs', () => {
         const bundle = await client.createRemoteBundle([upload.file], 'css');
         const { body } = await get(`/feed/${bundle.file}`);
 
-        expect(body).toMatchSnapshot();
+        expect(clean(body)).toMatchSnapshot();
     });
 });
-// test('asset-pipe-sink-gcs', async () => {
-//     const app = express();
-//     const sink = new AssetSinkGCS(
-//         {
-//             projectId: config.GCS_PROJECT_ID,
-//             keyFilename: config.GCS_KEYFILE_LOCATION,
-//             public: true,
-//             gzip: true,
-//         },
-//         'podium-assets'
-//     );
-//     const assets = new AssetServer(sink);
-//     app.use(assets.router());
-// });
