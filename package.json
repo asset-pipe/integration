@@ -70,7 +70,6 @@
   "badges": {
     "list": [
       "travisci",
-      "npmversion",
       "daviddm",
       "daviddmdev"
     ]

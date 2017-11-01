@@ -8,7 +8,6 @@
 <!-- BADGES/ -->
 
 <span class="badge-travisci"><a href="http://travis-ci.org/asset-pipe/integration" title="Check this project's build status on TravisCI"><img src="https://img.shields.io/travis/asset-pipe/integration/master.svg" alt="Travis CI Build Status" /></a></span>
-<span class="badge-npmversion"><a href="https://npmjs.org/package/integration" title="View this project on NPM"><img src="https://img.shields.io/npm/v/integration.svg" alt="NPM version" /></a></span>
 <span class="badge-daviddm"><a href="https://david-dm.org/asset-pipe/integration" title="View the status of this project's dependencies on DavidDM"><img src="https://img.shields.io/david/asset-pipe/integration.svg" alt="Dependency Status" /></a></span>
 <span class="badge-daviddmdev"><a href="https://david-dm.org/asset-pipe/integration#info=devDependencies" title="View the status of this project's development dependencies on DavidDM"><img src="https://img.shields.io/david/dev/asset-pipe/integration.svg" alt="Dev Dependency Status" /></a></span>
 
@@ -23,6 +22,7 @@ type | description
 ---|---
 single client | Isolated single client to server feed upload and bundle
 multi client | Simultaneous multi client to single server feed upload and bundle
+sinks | Tests for sinks other than mem sink
 scenario | Setups for more realistic real world scenarios
 
 ### Single Client
@@ -34,6 +34,11 @@ single asset-pipe-build-server.
 
 These tests verify more complex behavior between a multiple instances of the asset-pipe-client and a 
 single asset-pipe-build-server.
+
+### Sinks
+
+Tests for both the google cloud storage sink and the file system sink. The memory sink is tested pretty thoroughly as part of 
+the test types so is not re-tested here. The aws sink is not tested as it is not yet published to npm.
 
 ### Scenarios
 
