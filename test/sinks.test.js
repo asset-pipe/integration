@@ -183,12 +183,19 @@ describe('asset-pipe-sink-gcs', () => {
     });
 
     test('javascript bundle fetching', async () => {
-        expect.assertions(1);
+        expect.assertions(3);
         const upload = await client.uploadFeed([resolve('assets/a.js')]);
         const bundle = await client.createRemoteBundle([upload.file], 'js');
-        const { body } = await get(`/feed/${bundle.file}`);
+        const res = await get(`/feed/${bundle.file}`);
+        const { headers } = await supertest('https://www.googleapis.com').get(
+            `/download/storage/v1/b/asset-pipe-integration-tests/o/${
+                bundle.file
+            }?alt=media`
+        );
 
-        expect(clean(body)).toMatchSnapshot();
+        expect(headers['content-type']).toMatch(/application\/javascript/);
+        expect(res.headers['content-type']).toMatch(/application\/javascript/);
+        expect(clean(res.body)).toMatchSnapshot();
     });
 
     test('css upload', async () => {
@@ -200,12 +207,13 @@ describe('asset-pipe-sink-gcs', () => {
     });
 
     test('css upload feed fetching', async () => {
-        expect.assertions(1);
+        expect.assertions(2);
         const feeds = [resolve('assets/style.css')];
         const upload = await client.uploadFeed(feeds);
-        const { body } = await get(`/feed/${upload.file}`);
+        const res = await get(`/feed/${upload.file}`);
 
-        expect(clean(body)).toMatchSnapshot();
+        expect(res.headers['content-type']).toMatch(/application\/json/);
+        expect(clean(res.body)).toMatchSnapshot();
     });
 
     test('css bundling', async () => {
@@ -218,12 +226,20 @@ describe('asset-pipe-sink-gcs', () => {
     });
 
     test('css bundle fetching', async () => {
-        expect.assertions(1);
+        expect.assertions(3);
         const feeds = [resolve('assets/style.css')];
         const upload = await client.uploadFeed(feeds);
         const bundle = await client.createRemoteBundle([upload.file], 'css');
-        const { body } = await get(`/feed/${bundle.file}`);
+        const res = await get(`/feed/${bundle.file}`).set('Accept', 'text/css');
 
-        expect(clean(body)).toMatchSnapshot();
+        const { headers } = await supertest('https://www.googleapis.com').get(
+            `/download/storage/v1/b/asset-pipe-integration-tests/o/${
+                bundle.file
+            }?alt=media`
+        );
+
+        expect(headers['content-type']).toMatch(/text\/css/);
+        expect(res.headers['content-type']).toMatch(/text\/css/);
+        expect(clean(res.body)).toMatchSnapshot();
     });
 });
