@@ -2,7 +2,7 @@
 
 const { resolve } = require;
 const { spawn } = require('child_process');
-const Client = require('asset-pipe-client');
+const Client = require('@asset-pipe/client');
 const buildServerUri = 'http://127.0.0.1:7200';
 const client = new Client({ buildServerUri });
 const supertest = require('supertest');

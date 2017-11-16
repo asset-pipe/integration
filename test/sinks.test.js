@@ -3,10 +3,10 @@
 const express = require('express');
 const { resolve } = require('path');
 const supertest = require('supertest');
-const Client = require('asset-pipe-client');
-const AssetServer = require('asset-pipe-build-server');
+const Client = require('@asset-pipe/client');
+const AssetServer = require('@asset-pipe/server');
 const AssetSinkFS = require('asset-pipe-sink-fs');
-const AssetSinkGCS = require('asset-pipe-sink-gcs');
+const AssetSinkGCS = require('@asset-pipe/sink-gcs');
 
 async function startTestServer(sink) {
     const app = express();
