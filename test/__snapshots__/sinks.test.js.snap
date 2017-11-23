@@ -11,9 +11,9 @@ Object {
 
 exports[`asset-pipe-sink-fs css upload 1`] = `
 Object {
-  "file": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
-  "id": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94",
-  "uri": "/feed/729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+  "file": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
+  "id": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251",
+  "uri": "/feed/80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
 }
 `;
 
@@ -123,7 +123,7 @@ h1 {
     size: 32px;
 }",
     "file": "integration/assets/style.css",
-    "id": "08ed8043d057e86cb3eb9e537fdf988a02763e8af134082549555780a2994080",
+    "id": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d",
     "name": "integration",
     "version": "1.0.0",
   },
@@ -196,9 +196,9 @@ Object {
 
 exports[`asset-pipe-sink-gcs css upload 1`] = `
 Object {
-  "file": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
-  "id": "729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94",
-  "uri": "/feed/729d4b0600344998e8a2580d342bc5c1c068c4beac195ef97abf09252cbe5d94.json",
+  "file": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
+  "id": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251",
+  "uri": "/feed/80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
 }
 `;
 
@@ -308,7 +308,7 @@ h1 {
     size: 32px;
 }",
     "file": "integration/assets/style.css",
-    "id": "08ed8043d057e86cb3eb9e537fdf988a02763e8af134082549555780a2994080",
+    "id": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d",
     "name": "integration",
     "version": "1.0.0",
   },

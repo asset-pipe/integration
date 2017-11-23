@@ -91,7 +91,7 @@ Array [
     color: blue;
 }",
       "file": "integration/assets/a.css",
-      "id": "156a52b8cbf70db705a3b52603288c0c13a028a7fe70c00db8e6fef6862868bb",
+      "id": "1a54612eb24332ba5b5bbd272b577a4bc0ada16061c32328ca76dcce512917d0",
       "name": "integration",
       "version": "1.0.0",
     },
@@ -107,7 +107,7 @@ Array [
     color: red;
 }",
       "file": "integration/assets/b.css",
-      "id": "4a057822ed3f288597c76d74a5fc8ec8f821e39b7b37373055d0c192865734cd",
+      "id": "e99eff35f3004172ec02c8cce828ca896802c19fbcecfa40c5f391a0762e45d9",
       "name": "integration",
       "version": "1.0.0",
     },
@@ -123,7 +123,7 @@ Array [
     color: green;
 }",
       "file": "integration/assets/c.css",
-      "id": "9390bbbfa66b58e91a72284054bfcffff4624d7095fb16aa0656f7c75c3719ec",
+      "id": "57f2dbebc30c76f889fe7578f84c6f34a8e79e217e80475e0a6861c871e580fa",
       "name": "integration",
       "version": "1.0.0",
     },
@@ -244,19 +244,19 @@ module.exports = function sum(a, b) {
 exports[`Multiple clients upload css feeds to build server 1`] = `
 Array [
   Object {
-    "file": "a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940.json",
-    "id": "a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940",
-    "uri": "http://127.0.0.1:7200/feed/a6047f79041b9638ccc0ee22cf09e13ecab8ecb73078918cf774eacba289f940.json",
+    "file": "ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb.json",
+    "id": "ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb",
+    "uri": "http://127.0.0.1:7200/feed/ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb.json",
   },
   Object {
-    "file": "f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99.json",
-    "id": "f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99",
-    "uri": "http://127.0.0.1:7200/feed/f83a3f44acf211efad12ab1a1aad3df67dd429ba9a61ba9bd73d9801e1757a99.json",
+    "file": "515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47.json",
+    "id": "515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47",
+    "uri": "http://127.0.0.1:7200/feed/515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47.json",
   },
   Object {
-    "file": "6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f.json",
-    "id": "6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f",
-    "uri": "http://127.0.0.1:7200/feed/6bc7a80a707c36207623ce4bb852debe75e10646f7fbb869cac35ce0d120904f.json",
+    "file": "d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb.json",
+    "id": "d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb",
+    "uri": "http://127.0.0.1:7200/feed/d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb.json",
   },
 ]
 `;

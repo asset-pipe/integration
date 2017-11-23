@@ -1,13 +1,10 @@
 {
   "root": true,
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "experimentalObjectRestSpread": true
   },
-  "extends": [
-    "finn",
-    "finn/node",
-    "finn-prettier"
-  ],
+  "extends": ["finn", "finn/node", "finn-prettier"],
   "env": {
     "node": true,
     "jest": true
