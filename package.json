@@ -80,14 +80,14 @@
   ],
   "dependencies": {
     "@asset-pipe/server": "*",
-    "@asset-pipe/client": ">=3.0.3",
+    "@asset-pipe/client": "*",
     "asset-pipe-css-reader": "*",
-    "asset-pipe-css-writer": "*",
+    "@asset-pipe/css-writer": "*",
     "asset-pipe-js-reader": "*",
-    "asset-pipe-js-writer": "*",
-    "asset-pipe-sink-fs": "*",
+    "@asset-pipe/js-writer": "*",
+    "@asset-pipe/sink-fs": "*",
     "@asset-pipe/sink-gcs": "*",
-    "asset-pipe-sink-mem": "*",
+    "@asset-pipe/sink-mem": "*",
     "ext-name": "^5.0.0"
   }
 }
