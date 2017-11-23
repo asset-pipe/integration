@@ -80,7 +80,7 @@
   ],
   "dependencies": {
     "@asset-pipe/server": "*",
-    "@asset-pipe/client": "*",
+    "@asset-pipe/client": ">=3.0.3",
     "asset-pipe-css-reader": "*",
     "asset-pipe-css-writer": "*",
     "asset-pipe-js-reader": "*",
