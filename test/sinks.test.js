@@ -242,4 +242,64 @@ describe('asset-pipe-sink-gcs', () => {
         expect(res.headers['content-type']).toMatch(/text\/css/);
         expect(clean(res.body)).toMatchSnapshot();
     });
+
+    test('bulk javascript bundling', async () => {
+        expect.assertions(2);
+
+        const Storage = require('@google-cloud/storage');
+
+        const file1 =
+            'b8bde8bab4af3df184ee4cfff61998233c7cd7b0cc9522a982b1925cc11992b5.json';
+        const file2 =
+            'f4256d8dff32300ea15f41d0ff22cdc71016b2c663b6c7b89ab177df41c38d7f.json';
+        const file3 =
+            '6171e3331f55b38dd0864fe66d9b2193245ada687b90176ec772fc5d396fbc1c.json';
+        const file4 =
+            'a8b23f7fafde9106901db75df2c0d28214b6b00c02bb6c383339827bd7819036.json';
+        const file5 =
+            'def53011b9500e7b9feb1f07ed00bcf68cc6ff04636799b02ed7e4dacfbce9b5.json';
+
+        // Creates a client
+        const storage = new Storage({
+            projectId: 'asset-pipe-184710',
+            keyFilename: './gcs.json',
+        });
+
+        const bucket = await storage.bucket('asset-pipe-integration-tests');
+
+        const feed1 = await bucket.file(file1);
+        const feed2 = await bucket.file(file2);
+        const feed3 = await bucket.file(file3);
+        const feed4 = await bucket.file(file4);
+        const feed5 = await bucket.file(file5);
+
+        await Promise.all([
+            feed1.save(JSON.stringify(require(`../assets/${file1}`))),
+            feed2.save(JSON.stringify(require(`../assets/${file2}`))),
+            feed3.save(JSON.stringify(require(`../assets/${file3}`))),
+            feed4.save(JSON.stringify(require(`../assets/${file4}`))),
+            feed5.save(JSON.stringify(require(`../assets/${file5}`))),
+        ]);
+
+        function doBundle() {
+            return client.createRemoteBundle(
+                [file1, file2, file3, file4, file5],
+                'js'
+            );
+        }
+
+        let results = [];
+
+        for (let i = 0; i < 10; i++) {
+            let a = new Array(5);
+            a = a.join(',').split(',');
+            const res = await Promise.all(a.map(doBundle));
+            results = results.concat(res);
+        }
+
+        const uniquefileHashes = new Set(results.map(i => i.file));
+
+        expect(results.length).toBe(50);
+        expect(Array.from(uniquefileHashes).length).toBe(1);
+    });
 });
