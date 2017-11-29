@@ -70,9 +70,7 @@ body {
 
 .c-title {
     color: green;
-}
-
-"
+}"
 `;
 
 exports[`Layout and 3 podlets - run 2 - identical to run 1 1`] = `
@@ -145,9 +143,7 @@ body {
 
 .c-title {
     color: green;
-}
-
-"
+}"
 `;
 
 exports[`Layout and 3 podlets - run 3 - swapped bundling order 1`] = `
@@ -220,7 +216,5 @@ body {
 
 .a-title {
     color: blue;
-}
-
-"
+}"
 `;
