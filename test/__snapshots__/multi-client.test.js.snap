@@ -26,9 +26,7 @@ body {
 
 .a-title {
     color: blue;
-}
-
-"
+}"
 `;
 
 exports[`Client gets bundled js file from build server 1`] = `
@@ -66,8 +64,8 @@ module.exports = function sum(a, b) {
 
 exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
-  "file": "55960ccd31726d68f266bff255570763dbf3d98cf5c6dd8028f3f3d2430b5451.css",
-  "uri": "http://127.0.0.1:7200/bundle/55960ccd31726d68f266bff255570763dbf3d98cf5c6dd8028f3f3d2430b5451.css",
+  "file": "95ba0b54346c7a87c7c54d4050c060f2bbeff6febba22820b9c2f84e129818fd.css",
+  "uri": "http://127.0.0.1:7200/bundle/95ba0b54346c7a87c7c54d4050c060f2bbeff6febba22820b9c2f84e129818fd.css",
 }
 `;
 

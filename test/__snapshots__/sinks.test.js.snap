@@ -4,8 +4,8 @@ exports[`asset-pipe-sink-fs css bundle fetching 1`] = `Object {}`;
 
 exports[`asset-pipe-sink-fs css bundling 1`] = `
 Object {
-  "file": "a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
-  "uri": "/bundle/a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
+  "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
 }
 `;
 
@@ -189,8 +189,8 @@ exports[`asset-pipe-sink-gcs css bundle fetching 1`] = `Object {}`;
 
 exports[`asset-pipe-sink-gcs css bundling 1`] = `
 Object {
-  "file": "a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
-  "uri": "/bundle/a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
+  "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
 }
 `;
 

@@ -80,11 +80,11 @@
     "Richard Walker (https://github.com/digitalsadhu)"
   ],
   "dependencies": {
-    "@asset-pipe/server": ">=4.0.0",
+    "@asset-pipe/server": "*",
     "@asset-pipe/client": "*",
-    "asset-pipe-css-reader": "*",
+    "@asset-pipe/css-reader": "*",
     "@asset-pipe/css-writer": "*",
-    "asset-pipe-js-reader": "*",
+    "@asset-pipe/js-reader": "*",
     "@asset-pipe/js-writer": "*",
     "@asset-pipe/sink-fs": "*",
     "@asset-pipe/sink-gcs": "*",

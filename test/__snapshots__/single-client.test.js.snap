@@ -102,9 +102,7 @@ input, select {
 h1 {
     color: #000000;
     size: 32px;
-}
-
-"
+}"
 `;
 
 exports[`Client gets bundled js file from build server 1`] = `
@@ -279,8 +277,8 @@ module.exports.hello = function hello() {
 
 exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
-  "file": "a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
-  "uri": "http://127.0.0.1:7100/bundle/a4860db1f4c62bcf5f1726509673ace0070b5c83f21f3f8f93bba426441fc2c1.css",
+  "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "http://127.0.0.1:7100/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
 }
 `;
 
