@@ -87,7 +87,7 @@
     "@asset-pipe/js-reader": "*",
     "@asset-pipe/js-writer": "*",
     "@asset-pipe/sink-fs": "*",
-    "@asset-pipe/sink-gcs": "*",
+    "@asset-pipe/sink-gcs": ">=1.1.5",
     "@asset-pipe/sink-mem": "*",
     "ext-name": "^5.0.0"
   }
