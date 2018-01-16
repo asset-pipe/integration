@@ -26,21 +26,21 @@ const localiseBodyPaths = body =>
     );
 
 let server;
-beforeAll(
-    () =>
-        new Promise((resolve, reject) => {
-            server = spawn('./node_modules/.bin/asset-pipe-server', [], {
-                env: Object.assign({}, process.env, {
-                    NODE_ENV: 'development',
-                    PORT: 7200,
-                }),
-            });
-            server.stdout.once('data', () => resolve());
-            server.stderr.once('data', () => resolve());
-            server.once('error', err => reject(err));
-            server.once('close', () => resolve());
-        })
-);
+beforeAll(() => {
+    jest.setTimeout(20000);
+    return new Promise((resolve, reject) => {
+        server = spawn('./node_modules/.bin/asset-pipe-server', [], {
+            env: Object.assign({}, process.env, {
+                NODE_ENV: 'development',
+                PORT: 7200,
+            }),
+        });
+        server.stdout.once('data', () => resolve());
+        server.stderr.once('data', () => resolve());
+        server.once('error', err => reject(err));
+        server.once('close', () => resolve());
+    });
+});
 afterAll(() => {
     server.kill();
 });
