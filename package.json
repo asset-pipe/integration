@@ -84,7 +84,7 @@
     "@asset-pipe/client": "*",
     "@asset-pipe/css-reader": "*",
     "@asset-pipe/css-writer": "*",
-    "@asset-pipe/js-reader": "*",
+    "@asset-pipe/js-reader": "2.0.0",
     "@asset-pipe/js-writer": "*",
     "@asset-pipe/sink-fs": "*",
     "@asset-pipe/sink-gcs": "*",
