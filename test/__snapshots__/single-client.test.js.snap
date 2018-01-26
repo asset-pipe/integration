@@ -106,21 +106,21 @@ h1 {
 `;
 
 exports[`Client gets bundled js file from build server 1`] = `
-"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({\\"a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8\\":[function(require,module,exports){
+"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 const { hello } = require('./lib');
 
 console.log(hello());
 
-},{\\"./lib\\":\\"e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea\\"}],\\"e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea\\":[function(require,module,exports){
+},{\\"./lib\\":2}],2:[function(require,module,exports){
 'use strict';
 
 module.exports.hello = function hello() {
     console.log('hello');
 };
 
-},{}]},{},[\\"a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8\\"]);
+},{}]},{},[1]);
 "
 `;
 
@@ -284,8 +284,8 @@ Object {
 
 exports[`Client requests bundling of a js feed on build server 1`] = `
 Object {
-  "file": "c20d40da88b1c700dab718d2d78d1000988c87ef2fd433a22843beff107eef48.js",
-  "uri": "http://127.0.0.1:7100/bundle/c20d40da88b1c700dab718d2d78d1000988c87ef2fd433a22843beff107eef48.js",
+  "file": "8b37efa3105ca5e99dceeed61283bb3e547af6b2f5ad911eadb8b85b42885eee.js",
+  "uri": "http://127.0.0.1:7100/bundle/8b37efa3105ca5e99dceeed61283bb3e547af6b2f5ad911eadb8b85b42885eee.js",
 }
 `;
 
