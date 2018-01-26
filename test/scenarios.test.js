@@ -42,6 +42,7 @@ async function startProxyServer() {
 }
 
 beforeAll(async () => {
+    jest.setTimeout(10000);
     await startServer();
     return startProxyServer();
 });
