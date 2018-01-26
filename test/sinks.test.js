@@ -290,7 +290,7 @@ describe('asset-pipe-sink-gcs', () => {
 
         let results = [];
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 5; i++) {
             let a = new Array(5);
             a = a.join(',').split(',');
             const res = await Promise.all(a.map(doBundle));
@@ -299,7 +299,7 @@ describe('asset-pipe-sink-gcs', () => {
 
         const uniquefileHashes = new Set(results.map(i => i.file));
 
-        expect(results.length).toBe(50);
+        expect(results.length).toBe(25);
         expect(Array.from(uniquefileHashes).length).toBe(1);
     });
 });
