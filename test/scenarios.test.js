@@ -11,11 +11,11 @@ const http = require('http');
 
 let server;
 let proxyServer;
-async function startServer() {
+async function startServer(env = 'development') {
     return new Promise((resolve, reject) => {
         server = spawn('./node_modules/.bin/asset-pipe-server', [], {
             env: Object.assign({}, process.env, {
-                NODE_ENV: 'development',
+                NODE_ENV: env,
                 PORT: 8200,
             }),
         });
@@ -130,4 +130,24 @@ test('Layout and 3 podlets - run 3 - swapped bundling order', async () => {
 
     expect(jsBundle).toMatchSnapshot();
     expect(cssBundle).toMatchSnapshot();
+});
+
+test('Layout and 3 podlets - run 5 - js minification via NODE_ENV=production', async () => {
+    expect.assertions(1);
+    jest.setTimeout(20000);
+
+    server.kill();
+    await startServer('production');
+
+    const podlets = await Promise.all([podlet('a'), podlet('b'), podlet('c')]);
+    const { jsFile } = await layout('e', podlets);
+
+    const { text: jsBundle } = await request
+        .get(`/bundle/${jsFile}`)
+        .expect(200);
+
+    expect(jsBundle).toMatchSnapshot();
+
+    server.kill();
+    await startServer();
 });
