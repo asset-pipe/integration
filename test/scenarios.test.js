@@ -8,6 +8,7 @@ const supertest = require('supertest');
 const request = supertest(buildServerUri);
 const httpProxy = require('http-proxy');
 const http = require('http');
+const vm = require('vm');
 
 let server;
 let proxyServer;
@@ -147,6 +148,31 @@ test('Layout and 3 podlets - run 5 - js minification via NODE_ENV=production', a
         .expect(200);
 
     expect(jsBundle).toMatchSnapshot();
+
+    server.kill();
+    await startServer();
+});
+
+test('Layout and 3 podlets - run 6 - minification and all entrypoints run', async () => {
+    expect.assertions(3);
+    jest.setTimeout(20000);
+
+    server.kill();
+    await startServer('production');
+
+    const podlets = await Promise.all([podlet('f'), podlet('g'), podlet('h')]);
+    const { jsFile } = await layout('e', podlets);
+
+    const { text: jsBundle } = await request
+        .get(`/bundle/${jsFile}`)
+        .expect(200);
+
+    const spy = jest.fn();
+    vm.runInNewContext(jsBundle, { spy });
+
+    expect(jsBundle).toMatchSnapshot();
+    expect(spy).toMatchSnapshot();
+    expect(spy).toHaveBeenCalledTimes(3);
 
     server.kill();
     await startServer();
