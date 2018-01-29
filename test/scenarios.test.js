@@ -9,6 +9,7 @@ const request = supertest(buildServerUri);
 const httpProxy = require('http-proxy');
 const http = require('http');
 const vm = require('vm');
+const prettier = require('prettier');
 
 let server;
 let proxyServer;
@@ -60,6 +61,21 @@ async function podlet(label) {
         client.uploadFeed([js]),
         client.uploadFeed([css]),
     ]);
+    return { jsFile: jsFeedFile, cssFile: cssFeedFile, client };
+}
+
+async function multiEntrypointPodlet(...labels) {
+    const client = new Client({ buildServerUri });
+
+    const [{ file: jsFeedFile }, { file: cssFeedFile }] = await Promise.all([
+        client.uploadFeed(
+            labels.map(label => resolve(`../assets/${label}.js`))
+        ),
+        client.uploadFeed(
+            labels.map(label => resolve(`../assets/${label}.css`))
+        ),
+    ]);
+
     return { jsFile: jsFeedFile, cssFile: cssFeedFile, client };
 }
 
@@ -160,7 +176,10 @@ test('Layout and 3 podlets - run 6 - minification and all entrypoints run', asyn
     server.kill();
     await startServer('production');
 
-    const podlets = await Promise.all([podlet('f'), podlet('g'), podlet('h')]);
+    const podlets = await Promise.all([
+        multiEntrypointPodlet('f', 'g'),
+        podlet('h'),
+    ]);
     const { jsFile } = await layout('e', podlets);
 
     const { text: jsBundle } = await request
@@ -170,7 +189,7 @@ test('Layout and 3 podlets - run 6 - minification and all entrypoints run', asyn
     const spy = jest.fn();
     vm.runInNewContext(jsBundle, { spy });
 
-    expect(jsBundle).toMatchSnapshot();
+    expect(prettier.format(jsBundle)).toMatchSnapshot();
     expect(spy).toMatchSnapshot();
     expect(spy).toHaveBeenCalledTimes(3);
 
