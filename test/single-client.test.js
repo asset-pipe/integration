@@ -150,3 +150,18 @@ test('Bundled js feed from build server is deduped', async () => {
         .expect(200);
     expect(text).toMatchSnapshot();
 });
+
+test('NODE_ENV variables replaced during bundling', async () => {
+    expect.assertions(1);
+    const uploadResponse = await client.uploadFeed([
+        resolve('../assets/node_envs.js'),
+    ]);
+    const bundleResponse = await client.createRemoteBundle(
+        [uploadResponse.file],
+        'js'
+    );
+    const { text } = await request
+        .get(`/bundle/${bundleResponse.file}`)
+        .expect(200);
+    expect(text).not.toMatch(`process.env.NODE_ENV === 'production'`);
+});
