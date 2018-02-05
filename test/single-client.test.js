@@ -122,3 +122,31 @@ test('Client gets bundled css file from build server', async () => {
         .expect(200);
     expect(text).toMatchSnapshot();
 });
+
+test('Uploaded js feed from build server is not deduped', async () => {
+    expect.assertions(1);
+    const result = await client.uploadFeed([
+        resolve('../assets/duped-before-uploading.js'),
+    ]);
+    const { body } = await request
+        .get(`/feed/${result.file}`)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /application\/json/)
+        .expect(200);
+    expect(localiseBodyPaths(body)).toMatchSnapshot();
+});
+
+test('Bundled js feed from build server is deduped', async () => {
+    expect.assertions(1);
+    const uploadResponse = await client.uploadFeed([
+        resolve('../assets/duped-before-uploading.js'),
+    ]);
+    const bundleResponse = await client.createRemoteBundle(
+        [uploadResponse.file],
+        'js'
+    );
+    const { text } = await request
+        .get(`/bundle/${bundleResponse.file}`)
+        .expect(200);
+    expect(text).toMatchSnapshot();
+});

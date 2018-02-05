@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Bundled js feed from build server is deduped 1`] = `
+"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+
+},{\\"./d\\":2}],2:[function(require,module,exports){
+'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+
+},{}],3:[function(require,module,exports){
+require('./a');
+
+},{\\"./a\\":1}],4:[function(require,module,exports){
+arguments[4][3][0].apply(exports,arguments)
+},{\\"./a\\":1,\\"dup\\":3}],5:[function(require,module,exports){
+arguments[4][3][0].apply(exports,arguments)
+},{\\"./a\\":1,\\"dup\\":3}],6:[function(require,module,exports){
+const a = require('./dup-1');
+const b = require('./dup-2');
+const c = require('./dup-3');
+
+},{\\"./dup-1\\":3,\\"./dup-2\\":4,\\"./dup-3\\":5}]},{},[6]);
+"
+`;
+
 exports[`Client gets bundled css file from build server 1`] = `
 "html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -303,4 +334,100 @@ Object {
   "id": "5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6",
   "uri": "http://127.0.0.1:7100/feed/5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6.json",
 }
+`;
+
+exports[`Uploaded js feed from build server is not deduped 1`] = `
+Array [
+  Object {
+    "deps": Object {
+      "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    },
+    "file": "integration/assets/a.js",
+    "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    "index": 1,
+    "indexDeps": Object {
+      "./d": 2,
+    },
+    "source": "'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+",
+  },
+  Object {
+    "deps": Object {},
+    "file": "integration/assets/d.js",
+    "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    "index": 2,
+    "indexDeps": Object {},
+    "source": "'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+",
+  },
+  Object {
+    "deps": Object {
+      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    },
+    "file": "integration/assets/dup-1.js",
+    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "index": 3,
+    "indexDeps": Object {
+      "./a": 1,
+    },
+    "source": "require('./a');
+",
+  },
+  Object {
+    "deps": Object {
+      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    },
+    "file": "integration/assets/dup-2.js",
+    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "index": 4,
+    "indexDeps": Object {
+      "./a": 1,
+    },
+    "source": "require('./a');
+",
+  },
+  Object {
+    "deps": Object {
+      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    },
+    "file": "integration/assets/dup-3.js",
+    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "index": 5,
+    "indexDeps": Object {
+      "./a": 1,
+    },
+    "source": "require('./a');
+",
+  },
+  Object {
+    "deps": Object {
+      "./dup-1": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+      "./dup-2": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+      "./dup-3": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    },
+    "entry": true,
+    "expose": false,
+    "file": "integration/assets/duped-before-uploading.js",
+    "id": "9046c91ca8a6fe5989543e1dbb411f52700f8ee0b140ccf0c18b3fa3855bd1c0",
+    "index": 6,
+    "indexDeps": Object {
+      "./dup-1": 3,
+      "./dup-2": 4,
+      "./dup-3": 5,
+    },
+    "order": 0,
+    "source": "const a = require('./dup-1');
+const b = require('./dup-2');
+const c = require('./dup-3');
+",
+  },
+]
 `;
