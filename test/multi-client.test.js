@@ -168,3 +168,21 @@ test('Client gets bundled css file from build server', async () => {
         .expect(200);
     expect(text).toMatchSnapshot();
 });
+
+test('Bundled js feeds from build server are deduped', async () => {
+    expect.assertions(1);
+    const js1 = resolve('../assets/duped-before-uploading.js');
+    const js2 = resolve('../assets/duped-before-uploading-2.js');
+    const js3 = resolve('../assets/duped-before-uploading-3.js');
+    const uploadResponse1 = await client.uploadFeed([js1]);
+    const uploadResponse2 = await client.uploadFeed([js2]);
+    const uploadResponse3 = await client.uploadFeed([js3]);
+    const bundleResponse = await client.createRemoteBundle(
+        [uploadResponse1.file, uploadResponse2.file, uploadResponse3.file],
+        'js'
+    );
+    const { text } = await request
+        .get(`/bundle/${bundleResponse.file}`)
+        .expect(200);
+    expect(text).toMatchSnapshot();
+});
