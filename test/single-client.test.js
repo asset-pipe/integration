@@ -7,6 +7,7 @@ const buildServerUri = 'http://127.0.0.1:7100';
 const client = new Client({ buildServerUri });
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
+const prettier = require('prettier');
 
 const localiseBodyPaths = body =>
     JSON.parse(
@@ -17,23 +18,33 @@ const localiseBodyPaths = body =>
     );
 
 let server;
-beforeAll(() => {
-    jest.setTimeout(20000);
+
+function startServer(env = 'development') {
     return new Promise((resolve, reject) => {
         server = spawn('./node_modules/.bin/asset-pipe-server', [], {
             env: Object.assign({}, process.env, {
-                NODE_ENV: 'development',
+                NODE_ENV: env,
             }),
         });
         server.stdout.once('data', () => resolve());
         server.stderr.once('data', () => resolve());
         server.once('error', err => reject(err));
-        server.once('close', () => resolve());
     });
+}
+
+function stopServer() {
+    return new Promise(resolve => {
+        server.once('close', () => resolve());
+        server.kill();
+    });
+}
+
+beforeAll(() => {
+    jest.setTimeout(20000);
+    return startServer();
 });
-afterAll(() => {
-    server.kill();
-});
+
+afterAll(() => stopServer());
 
 test('Client uploads a js feed to build server', async () => {
     expect.assertions(1);
@@ -151,8 +162,8 @@ test('Bundled js feed from build server is deduped', async () => {
     expect(text).toMatchSnapshot();
 });
 
-test('NODE_ENV variables replaced during bundling', async () => {
-    expect.assertions(1);
+test('NODE_ENV variables replaced with hard coded values', async () => {
+    expect.assertions(5);
     const uploadResponse = await client.uploadFeed([
         resolve('../assets/node_envs.js'),
     ]);
@@ -163,5 +174,32 @@ test('NODE_ENV variables replaced during bundling', async () => {
     const { text } = await request
         .get(`/bundle/${bundleResponse.file}`)
         .expect(200);
+    expect(text).not.toMatch(`process.env.NODE_ENV === 'development'`);
     expect(text).not.toMatch(`process.env.NODE_ENV === 'production'`);
+    expect(text).toMatch(`"development" === 'production'`);
+    expect(text).toMatch(`"development" === 'development'`);
+    expect(prettier.format(text)).toMatchSnapshot();
+});
+
+test('NODE_ENV variables trigger dead code elimination (DCE)', async () => {
+    expect.assertions(4);
+    await stopServer();
+    await startServer('production');
+
+    const uploadResponse = await client.uploadFeed([
+        resolve('../assets/node_envs.js'),
+    ]);
+    const bundleResponse = await client.createRemoteBundle(
+        [uploadResponse.file],
+        'js'
+    );
+    const { text } = await request
+        .get(`/bundle/${bundleResponse.file}`)
+        .expect(200);
+    expect(text).toMatch(`In prod!!`);
+    expect(text).not.toMatch(`In dev!!`);
+    expect(text).not.toMatch(`In limbo!!`);
+    expect(text).toMatchSnapshot();
+    await stopServer();
+    await startServer();
 });
