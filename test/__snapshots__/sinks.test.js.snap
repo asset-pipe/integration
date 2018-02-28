@@ -141,9 +141,9 @@ Object {
 
 exports[`asset-pipe-sink-fs javascript upload 1`] = `
 Object {
-  "file": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
-  "id": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73",
-  "uri": "/feed/6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+  "file": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
+  "id": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0",
+  "uri": "/feed/149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
 }
 `;
 
@@ -151,12 +151,12 @@ exports[`asset-pipe-sink-fs javascript upload feed fetching 1`] = `
 Array [
   Object {
     "deps": Object {
-      "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "./d": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     },
     "entry": true,
     "expose": false,
     "file": "asset-pipe/integration/assets/a.js",
-    "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    "id": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     "index": 1,
     "indexDeps": Object {
       "./d": 2,
@@ -172,7 +172,7 @@ sum(1, 2);
   Object {
     "deps": Object {},
     "file": "asset-pipe/integration/assets/d.js",
-    "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    "id": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     "index": 2,
     "indexDeps": Object {},
     "source": "'use strict';
@@ -326,9 +326,9 @@ Object {
 
 exports[`asset-pipe-sink-gcs javascript upload 1`] = `
 Object {
-  "file": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
-  "id": "6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73",
-  "uri": "/feed/6be8bba8c98ca6672c80c26488b88de531edd6f8ae4952756355b41a07e3fd73.json",
+  "file": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
+  "id": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0",
+  "uri": "/feed/149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
 }
 `;
 
@@ -336,12 +336,12 @@ exports[`asset-pipe-sink-gcs javascript upload feed fetching 1`] = `
 Array [
   Object {
     "deps": Object {
-      "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "./d": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     },
     "entry": true,
     "expose": false,
     "file": "asset-pipe/integration/assets/a.js",
-    "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    "id": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     "index": 1,
     "indexDeps": Object {
       "./d": 2,
@@ -357,7 +357,7 @@ sum(1, 2);
   Object {
     "deps": Object {},
     "file": "asset-pipe/integration/assets/d.js",
-    "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    "id": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     "index": 2,
     "indexDeps": Object {},
     "source": "'use strict';
