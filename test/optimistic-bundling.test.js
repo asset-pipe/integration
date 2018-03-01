@@ -145,13 +145,13 @@ test('scenario: 2 podlets come online after layout', async () => {
     await client.publishInstructions('layout', 'js', ['podlet1', 'podlet2']);
     await client.publishInstructions('layout', 'css', ['podlet1', 'podlet2']);
 
-    // podlet 1 publishes assests
+    // podlet 1 publishes assets
     const [p1js, p1css] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/a.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/a.css')]),
     ]);
 
-    // podlet 2 publishes assests
+    // podlet 2 publishes assets
     const [p2js, p2css] = await Promise.all([
         await client.publishAssets('podlet2', [resolve('../assets/b.js')]),
         await client.publishAssets('podlet2', [resolve('../assets/b.css')]),
@@ -171,13 +171,13 @@ test('scenario: 2 podlets come online first then layout publishes after', async 
     expect.assertions(2);
     const client = new Client({ buildServerUri });
 
-    // podlet 1 publishes assests
+    // podlet 1 publishes assets
     const [p1js, p1css] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/a.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/a.css')]),
     ]);
 
-    // podlet 2 publishes assests
+    // podlet 2 publishes assets
     const [p2js, p2css] = await Promise.all([
         await client.publishAssets('podlet2', [resolve('../assets/b.js')]),
         await client.publishAssets('podlet2', [resolve('../assets/b.css')]),
@@ -201,13 +201,13 @@ test('scenario: changes to podlets trigger rebundling', async () => {
     expect.assertions(4);
     const client = new Client({ buildServerUri });
 
-    // podlet 1 publishes assests
+    // podlet 1 publishes assets
     const [p1js, p1css] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/c.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/c.css')]),
     ]);
 
-    // podlet 2 publishes assests
+    // podlet 2 publishes assets
     const [p2js, p2css] = await Promise.all([
         await client.publishAssets('podlet2', [resolve('../assets/d.js')]),
         await client.publishAssets('podlet2', [resolve('../assets/d.css')]),
@@ -217,7 +217,7 @@ test('scenario: changes to podlets trigger rebundling', async () => {
     await client.publishInstructions('layout', 'js', ['podlet1', 'podlet2']);
     await client.publishInstructions('layout', 'css', ['podlet1', 'podlet2']);
 
-    // podlet 1 republishes assests
+    // podlet 1 republishes assets
     const [p1rebundlejs, p1rebundlecss] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/e.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/e.css')]),
@@ -252,13 +252,13 @@ test('scenario: adding a podlet to bundle instructions generates a new bundle', 
     expect.assertions(4);
     const client = new Client({ buildServerUri });
 
-    // podlet 1 publishes assests
+    // podlet 1 publishes assets
     const [p1js, p1css] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/a.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/a.css')]),
     ]);
 
-    // podlet 2 publishes assests
+    // podlet 2 publishes assets
     const [p2js, p2css] = await Promise.all([
         await client.publishAssets('podlet2', [resolve('../assets/b.js')]),
         await client.publishAssets('podlet2', [resolve('../assets/b.css')]),
@@ -301,13 +301,13 @@ test('scenario: removing a podlet from bundle instructions generates a new bundl
     expect.assertions(4);
     const client = new Client({ buildServerUri });
 
-    // podlet 1 publishes assests
+    // podlet 1 publishes assets
     const [p1js, p1css] = await Promise.all([
         await client.publishAssets('podlet1', [resolve('../assets/a.js')]),
         await client.publishAssets('podlet1', [resolve('../assets/a.css')]),
     ]);
 
-    // podlet 2 publishes assests
+    // podlet 2 publishes assets
     const [p2js, p2css] = await Promise.all([
         await client.publishAssets('podlet2', [resolve('../assets/b.js')]),
         await client.publishAssets('podlet2', [resolve('../assets/b.css')]),
