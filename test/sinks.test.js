@@ -7,6 +7,8 @@ const Client = require('@asset-pipe/client');
 const AssetServer = require('@asset-pipe/server');
 const AssetSinkFS = require('@asset-pipe/sink-fs');
 const AssetSinkGCS = require('@asset-pipe/sink-gcs');
+const { hashArray } = require('../utils');
+const { endWorkers } = require('../node_modules/@asset-pipe/server/lib/utils');
 
 async function startTestServer(sink) {
     const app = express();
@@ -24,7 +26,8 @@ async function startTestServer(sink) {
 
 function closeTestServer(server) {
     return new Promise(resolve => {
-        server.close(resolve);
+        server.once('close', () => resolve());
+        server.kill();
     });
 }
 
@@ -34,6 +37,8 @@ function clean(data) {
     const str = JSON.stringify(data, null, 2).replace(reg1, '/');
     return JSON.parse(str.replace(reg2, '"asset-pipe'));
 }
+
+afterAll(() => endWorkers());
 
 describe('asset-pipe-sink-fs', () => {
     let server;
@@ -301,5 +306,66 @@ describe('asset-pipe-sink-gcs', () => {
 
         expect(results.length).toBe(20);
         expect(Array.from(uniquefileHashes).length).toBe(1);
+    });
+
+    test('javascript bundling using optimistic bundling', async () => {
+        expect.hasAssertions();
+        const { resolve } = require;
+
+        const [podletA, podletB, podletC, podletE] = await Promise.all([
+            Promise.all([
+                client.publishAssets('podletA', [resolve('../assets/a.js')]),
+                client.publishAssets('podletA', [resolve('../assets/a.css')]),
+            ]),
+            Promise.all([
+                client.publishAssets('podletB', [resolve('../assets/b.js')]),
+                client.publishAssets('podletB', [resolve('../assets/b.css')]),
+            ]),
+            Promise.all([
+                client.publishAssets('podletC', [resolve('../assets/c.js')]),
+                client.publishAssets('podletC', [resolve('../assets/c.css')]),
+            ]),
+            Promise.all([
+                client.publishAssets('podletE', [resolve('../assets/e.js')]),
+                client.publishAssets('podletE', [resolve('../assets/e.css')]),
+            ]),
+        ]);
+
+        await Promise.all([
+            client.publishInstructions('layout', 'js', [
+                'podletA',
+                'podletB',
+                'podletC',
+                'podletE',
+            ]),
+            client.publishInstructions('layout', 'css', [
+                'podletA',
+                'podletB',
+                'podletC',
+                'podletE',
+            ]),
+        ]);
+
+        const jsBundleHash = await hashArray([
+            podletA[0].id,
+            podletB[0].id,
+            podletC[0].id,
+            podletE[0].id,
+        ]);
+
+        const cssBundleHash = await hashArray([
+            podletA[1].id,
+            podletB[1].id,
+            podletC[1].id,
+            podletE[1].id,
+        ]);
+
+        const [{ text: jsBundle }, { text: cssBundle }] = await Promise.all([
+            get(`/bundle/${jsBundleHash}.js`),
+            get(`/bundle/${cssBundleHash}.css`),
+        ]);
+
+        expect(jsBundle).toMatchSnapshot();
+        expect(cssBundle).toMatchSnapshot();
     });
 });

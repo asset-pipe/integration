@@ -6,9 +6,9 @@ const Client = require('@asset-pipe/client');
 const buildServerUri = 'http://127.0.0.1:7100';
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
-const { IdHasher } = require('asset-pipe-common');
-const { Readable } = require('readable-stream');
 const vm = require('vm');
+const { hashArray } = require('../utils');
+const { endWorkers } = require('../node_modules/@asset-pipe/server/lib/utils');
 
 const localiseBodyPaths = body =>
     JSON.parse(
@@ -40,32 +40,14 @@ function stopServer() {
     });
 }
 
-function hashArray(arr) {
-    const source = new Readable({ objectMode: true, read() {} });
-    const hasher = new IdHasher();
-
-    source.pipe(hasher);
-
-    return new Promise((resolve, reject) => {
-        hasher.on('finish', () => {
-            resolve(hasher.hash);
-        });
-
-        hasher.on('error', reject);
-
-        for (const hash of arr) {
-            source.push({ id: hash });
-        }
-        source.push(null);
-    });
-}
-
 beforeEach(() => {
     jest.setTimeout(20000);
     return startServer();
 });
 
 afterEach(() => stopServer());
+
+afterAll(() => endWorkers());
 
 test('Client uploads a js feed to build server', async () => {
     expect.assertions(1);
@@ -418,4 +400,65 @@ test('NODE_ENV variables trigger dead code elimination (DCE)', async () => {
     expect(text).toMatchSnapshot();
     await stopServer();
     await startServer();
+});
+
+test('complex bundling multiple assets', async () => {
+    expect.hasAssertions();
+    const client = new Client({ buildServerUri });
+
+    const [podletA, podletB, podletC, podletE] = await Promise.all([
+        Promise.all([
+            client.publishAssets('podletA', [resolve('../assets/a.js')]),
+            client.publishAssets('podletA', [resolve('../assets/a.css')]),
+        ]),
+        Promise.all([
+            client.publishAssets('podletB', [resolve('../assets/b.js')]),
+            client.publishAssets('podletB', [resolve('../assets/b.css')]),
+        ]),
+        Promise.all([
+            client.publishAssets('podletC', [resolve('../assets/c.js')]),
+            client.publishAssets('podletC', [resolve('../assets/c.css')]),
+        ]),
+        Promise.all([
+            client.publishAssets('podletE', [resolve('../assets/e.js')]),
+            client.publishAssets('podletE', [resolve('../assets/e.css')]),
+        ]),
+    ]);
+
+    await Promise.all([
+        client.publishInstructions('layout', 'js', [
+            'podletA',
+            'podletB',
+            'podletC',
+            'podletE',
+        ]),
+        client.publishInstructions('layout', 'css', [
+            'podletA',
+            'podletB',
+            'podletC',
+            'podletE',
+        ]),
+    ]);
+
+    const jsBundleHash = await hashArray([
+        podletA[0].id,
+        podletB[0].id,
+        podletC[0].id,
+        podletE[0].id,
+    ]);
+
+    const cssBundleHash = await hashArray([
+        podletA[1].id,
+        podletB[1].id,
+        podletC[1].id,
+        podletE[1].id,
+    ]);
+
+    const [{ text: jsBundle }, { text: cssBundle }] = await Promise.all([
+        request.get(`/bundle/${jsBundleHash}.js`),
+        request.get(`/bundle/${cssBundleHash}.css`),
+    ]);
+
+    expect(jsBundle).toMatchSnapshot();
+    expect(cssBundle).toMatchSnapshot();
 });
