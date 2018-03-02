@@ -54,8 +54,8 @@ afterAll(() => {
 });
 
 async function podlet(label) {
-    const js = resolve(`../assets/${label}.js`);
-    const css = resolve(`../assets/${label}.css`);
+    const js = resolve(`../../assets/${label}.js`);
+    const css = resolve(`../../assets/${label}.css`);
     const client = new Client({ buildServerUri });
     const [{ file: jsFeedFile }, { file: cssFeedFile }] = await Promise.all([
         client.uploadFeed([js]),
@@ -69,10 +69,10 @@ async function multiEntrypointPodlet(...labels) {
 
     const [{ file: jsFeedFile }, { file: cssFeedFile }] = await Promise.all([
         client.uploadFeed(
-            labels.map(label => resolve(`../assets/${label}.js`))
+            labels.map(label => resolve(`../../assets/${label}.js`))
         ),
         client.uploadFeed(
-            labels.map(label => resolve(`../assets/${label}.css`))
+            labels.map(label => resolve(`../../assets/${label}.css`))
         ),
     ]);
 
