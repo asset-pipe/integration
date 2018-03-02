@@ -243,6 +243,66 @@ body {
 }"
 `;
 
+exports[`scenario: full production setup 1`] = `"!function t(n,e,r){function o(u,c){if(!e[u]){if(!n[u]){var s=\\"function\\"==typeof require&&require;if(!c&&s)return s(u,!0);if(i)return i(u,!0);var f=new Error(\\"Cannot find module '\\"+u+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=e[u]={exports:{}};n[u][0].call(l.exports,function(t){var e=n[u][1][t];return o(e||t)},l,l.exports,t,n,e,r)}return e[u].exports}for(var i=\\"function\\"==typeof require&&require,u=0;u<r.length;u++)o(r[u]);return o}({1:[function(t,n,e){\\"use strict\\";t(\\"./d\\")(1,2)},{\\"./d\\":2}],2:[function(t,n,e){\\"use strict\\";n.exports=function(t,n){return t+n}},{}],3:[function(t,n,e){t(\\"./a\\")},{\\"./a\\":1}],4:[function(t,n,e){\\"use strict\\";t(\\"./d\\")(3,4)},{\\"./d\\":5}],5:[function(t,n,e){arguments[4][2][0].apply(e,arguments)},{dup:2}],6:[function(t,n,e){var r,o,i=n.exports={};function u(){throw new Error(\\"setTimeout has not been defined\\")}function c(){throw new Error(\\"clearTimeout has not been defined\\")}function s(t){if(r===setTimeout)return setTimeout(t,0);if((r===u||!r)&&setTimeout)return r=setTimeout,setTimeout(t,0);try{return r(t,0)}catch(n){try{return r.call(null,t,0)}catch(n){return r.call(this,t,0)}}}!function(){try{r=\\"function\\"==typeof setTimeout?setTimeout:u}catch(t){r=u}try{o=\\"function\\"==typeof clearTimeout?clearTimeout:c}catch(t){o=c}}();var f,l=[],a=!1,p=-1;function h(){a&&f&&(a=!1,f.length?l=f.concat(l):p=-1,l.length&&d())}function d(){if(!a){var t=s(h);a=!0;for(var n=l.length;n;){for(f=l,l=[];++p<n;)f&&f[p].run();p=-1,n=l.length}f=null,a=!1,function(t){if(o===clearTimeout)return clearTimeout(t);if((o===c||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(t);try{o(t)}catch(n){try{return o.call(null,t)}catch(n){return o.call(this,t)}}}(t)}}function m(t,n){this.fun=t,this.array=n}function y(){}i.nextTick=function(t){var n=new Array(arguments.length-1);if(arguments.length>1)for(var e=1;e<arguments.length;e++)n[e-1]=arguments[e];l.push(new m(t,n)),1!==l.length||a||s(d)},m.prototype.run=function(){this.fun.apply(null,this.array)},i.title=\\"browser\\",i.browser=!0,i.env={},i.argv=[],i.version=\\"\\",i.versions={},i.on=y,i.addListener=y,i.once=y,i.off=y,i.removeListener=y,i.removeAllListeners=y,i.emit=y,i.prependListener=y,i.prependOnceListener=y,i.listeners=function(t){return[]},i.binding=function(t){throw new Error(\\"process.binding is not supported\\")},i.cwd=function(){return\\"/\\"},i.chdir=function(t){throw new Error(\\"process.chdir is not supported\\")},i.umask=function(){return 0}},{}],7:[function(t,n,e){arguments[4][4][0].apply(e,arguments)},{\\"./d\\":8,dup:4}],8:[function(t,n,e){arguments[4][2][0].apply(e,arguments)},{dup:2}],9:[function(t,n,e){\\"use strict\\";t(\\"./b\\");spy(\\"g\\")},{\\"./b\\":7}],10:[function(t,n,e){(function(t){console.log(\\"In prod!!\\")}).call(this,t(\\"./../../asset-pipe-client/node_modules/process/browser.js\\"))},{\\"./../../asset-pipe-client/node_modules/process/browser.js\\":6}]},{},[3,4,9,10]);"`;
+
+exports[`scenario: full production setup 2`] = `"!function n(t,e,r){function o(u,c){if(!e[u]){if(!t[u]){var s=\\"function\\"==typeof require&&require;if(!c&&s)return s(u,!0);if(i)return i(u,!0);var f=new Error(\\"Cannot find module '\\"+u+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var a=e[u]={exports:{}};t[u][0].call(a.exports,function(n){var e=t[u][1][n];return o(e||n)},a,a.exports,n,t,e,r)}return e[u].exports}for(var i=\\"function\\"==typeof require&&require,u=0;u<r.length;u++)o(r[u]);return o}({1:[function(n,t,e){\\"use strict\\";n(\\"./d\\")(1,2)},{\\"./d\\":2}],2:[function(n,t,e){\\"use strict\\";t.exports=function(n,t){return n+t}},{}],3:[function(n,t,e){n(\\"./a\\")},{\\"./a\\":1}],4:[function(n,t,e){arguments[4][1][0].apply(e,arguments)},{\\"./d\\":5,dup:1}],5:[function(n,t,e){arguments[4][2][0].apply(e,arguments)},{dup:2}],6:[function(n,t,e){arguments[4][3][0].apply(e,arguments)},{\\"./a\\":4,dup:3}],7:[function(n,t,e){\\"use strict\\";n(\\"./d\\")(3,4)},{\\"./d\\":8}],8:[function(n,t,e){arguments[4][2][0].apply(e,arguments)},{dup:2}],9:[function(n,t,e){var r,o,i=t.exports={};function u(){throw new Error(\\"setTimeout has not been defined\\")}function c(){throw new Error(\\"clearTimeout has not been defined\\")}function s(n){if(r===setTimeout)return setTimeout(n,0);if((r===u||!r)&&setTimeout)return r=setTimeout,setTimeout(n,0);try{return r(n,0)}catch(t){try{return r.call(null,n,0)}catch(t){return r.call(this,n,0)}}}!function(){try{r=\\"function\\"==typeof setTimeout?setTimeout:u}catch(n){r=u}try{o=\\"function\\"==typeof clearTimeout?clearTimeout:c}catch(n){o=c}}();var f,a=[],l=!1,p=-1;function d(){l&&f&&(l=!1,f.length?a=f.concat(a):p=-1,a.length&&h())}function h(){if(!l){var n=s(d);l=!0;for(var t=a.length;t;){for(f=a,a=[];++p<t;)f&&f[p].run();p=-1,t=a.length}f=null,l=!1,function(n){if(o===clearTimeout)return clearTimeout(n);if((o===c||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(n);try{o(n)}catch(t){try{return o.call(null,n)}catch(t){return o.call(this,n)}}}(n)}}function m(n,t){this.fun=n,this.array=t}function y(){}i.nextTick=function(n){var t=new Array(arguments.length-1);if(arguments.length>1)for(var e=1;e<arguments.length;e++)t[e-1]=arguments[e];a.push(new m(n,t)),1!==a.length||l||s(h)},m.prototype.run=function(){this.fun.apply(null,this.array)},i.title=\\"browser\\",i.browser=!0,i.env={},i.argv=[],i.version=\\"\\",i.versions={},i.on=y,i.addListener=y,i.once=y,i.off=y,i.removeListener=y,i.removeAllListeners=y,i.emit=y,i.prependListener=y,i.prependOnceListener=y,i.listeners=function(n){return[]},i.binding=function(n){throw new Error(\\"process.binding is not supported\\")},i.cwd=function(){return\\"/\\"},i.chdir=function(n){throw new Error(\\"process.chdir is not supported\\")},i.umask=function(){return 0}},{}],10:[function(n,t,e){arguments[4][7][0].apply(e,arguments)},{\\"./d\\":11,dup:7}],11:[function(n,t,e){arguments[4][2][0].apply(e,arguments)},{dup:2}],12:[function(n,t,e){\\"use strict\\";n(\\"./b\\");spy(\\"g\\")},{\\"./b\\":10}],13:[function(n,t,e){(function(n){console.log(\\"In prod!!\\")}).call(this,n(\\"./../../asset-pipe-client/node_modules/process/browser.js\\"))},{\\"./../../asset-pipe-client/node_modules/process/browser.js\\":9}]},{},[3,7,12,13,6]);"`;
+
+exports[`scenario: full production setup 3`] = `
+"body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-title {
+    color: blue;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.b-title {
+    color: red;
+}
+
+.error {
+    color: red;
+}
+
+.e-title {
+    color: black;
+}"
+`;
+
+exports[`scenario: full production setup 4`] = `
+"body {
+    margin: 0;
+    padding: 0;
+}
+
+.b-title {
+    color: red;
+}
+
+.error {
+    color: red;
+}
+
+.e-title {
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-title {
+    color: blue;
+}"
+`;
+
 exports[`scenario: removing a podlet from bundle instructions generates a new bundle 1`] = `
 "(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
