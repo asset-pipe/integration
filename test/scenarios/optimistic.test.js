@@ -6,6 +6,7 @@ const Client = require('@asset-pipe/client');
 const buildServerUri = 'http://127.0.0.1:7100';
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
+const vm = require('vm');
 const { hashArray } = require('../../utils');
 const {
     endWorkers,
@@ -31,6 +32,32 @@ function stopServer() {
         server.once('close', () => resolve());
         server.kill();
     });
+}
+
+async function podlet(tag, label) {
+    const js = resolve(`../../assets/${label}.js`);
+    const css = resolve(`../../assets/${label}.css`);
+    const client = new Client({ buildServerUri });
+    const [{ id: jsHash }, { id: cssHash }] = await Promise.all([
+        client.publishAssets(tag, [js]),
+        client.publishAssets(tag, [css]),
+    ]);
+    return { jsHash, cssHash, client };
+}
+
+async function multiEntrypointPodlet(tag, ...labels) {
+    const client = new Client({ buildServerUri });
+    const [{ id: jsHash }, { id: cssHash }] = await Promise.all([
+        client.publishAssets(
+            tag,
+            labels.map(label => resolve(`../../assets/${label}.js`))
+        ),
+        client.publishAssets(
+            tag,
+            labels.map(label => resolve(`../../assets/${label}.css`))
+        ),
+    ]);
+    return { jsHash, cssHash, client };
 }
 
 beforeEach(() => {
@@ -249,4 +276,88 @@ test('scenario: removing a podlet from bundle instructions generates a new bundl
         .get(`/bundle/${hash2}.css`)
         .expect(200);
     expect(cssBundle1).toMatchSnapshot();
+});
+
+test('scenario: full production setup', async () => {
+    expect.hasAssertions();
+
+    await server.kill();
+    await startServer('production');
+
+    const client = new Client({ buildServerUri });
+
+    // podlet 1 publishes assets
+    const { jsHash: p1js, cssHash: p1css } = await podlet('podlet1', 'dup-1');
+
+    // podlet 2 publishes assets
+    const { jsHash: p2js, cssHash: p2css } = await podlet('podlet2', 'b');
+
+    // podlet 3 publishes assets
+    const { jsHash: p3js, cssHash: p3css } = await multiEntrypointPodlet(
+        'podlet3',
+        'node_envs',
+        'g'
+    );
+
+    // layout publishes instructions for js and css bundling of both podlet1 and 2
+    await client.publishInstructions('layout', 'js', [
+        'podlet1',
+        'podlet2',
+        'podlet3',
+    ]);
+    await client.publishInstructions('layout', 'css', [
+        'podlet1',
+        'podlet2',
+        'podlet3',
+    ]);
+
+    // layout adds a new podlet and so publishes new instructions for js and css bundling
+    await client.publishInstructions('layout', 'js', [
+        'podlet1',
+        'podlet2',
+        'podlet3',
+        'podlet4',
+    ]);
+    await client.publishInstructions('layout', 'css', [
+        'podlet1',
+        'podlet2',
+        'podlet3',
+        'podlet4',
+    ]);
+
+    // podlet 4 publishes assets after being included in bundling instructions
+    const { jsHash: p4js, cssHash: p4css } = await podlet('podlet4', 'dup-2');
+
+    const jsHash1 = await hashArray([p1js, p2js, p3js]);
+    const jsHash2 = await hashArray([p1js, p2js, p3js, p4js]);
+    const cssHash1 = await hashArray([p1css, p2css, p3css]);
+    const cssHash2 = await hashArray([p1css, p2css, p3css, p4css]);
+
+    const { text: jsBundle1 } = await request
+        .get(`/bundle/${jsHash1}.js`)
+        .expect(200);
+    expect(jsBundle1).toMatchSnapshot();
+
+    const { text: jsBundle2 } = await request
+        .get(`/bundle/${jsHash2}.js`)
+        .expect(200);
+    expect(jsBundle2).toMatchSnapshot();
+
+    const { text: cssBundle1 } = await request
+        .get(`/bundle/${cssHash1}.css`)
+        .expect(200);
+    expect(cssBundle1).toMatchSnapshot();
+
+    const { text: cssBundle2 } = await request
+        .get(`/bundle/${cssHash2}.css`)
+        .expect(200);
+    expect(cssBundle2).toMatchSnapshot();
+
+    const spy = jest.fn();
+    vm.runInNewContext(jsBundle1, { spy });
+    vm.runInNewContext(jsBundle2, { spy });
+    expect(spy).toHaveBeenCalledTimes(2);
+
+    server.kill();
+    await startServer();
 });
