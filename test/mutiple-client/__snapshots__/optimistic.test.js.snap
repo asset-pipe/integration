@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`complex bundling multiple assets 1`] = `
+"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(1, 2);
+
+},{\\"./d\\":2}],2:[function(require,module,exports){
+'use strict';
+
+module.exports = function sum(a, b) {
+    return a + b;
+};
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(5, 6);
+
+},{\\"./d\\":4}],4:[function(require,module,exports){
+arguments[4][2][0].apply(exports,arguments)
+},{\\"dup\\":2}],5:[function(require,module,exports){
+arguments[4][2][0].apply(exports,arguments)
+},{\\"dup\\":2}],6:[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(10, 6);
+
+},{\\"./d\\":5}],7:[function(require,module,exports){
+'use strict';
+
+const sum = require('./d');
+
+sum(3, 4);
+
+},{\\"./d\\":8}],8:[function(require,module,exports){
+arguments[4][2][0].apply(exports,arguments)
+},{\\"dup\\":2}]},{},[1,7,3,6]);
+"
+`;
+
+exports[`complex bundling multiple assets 2`] = `
+"body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-title {
+    color: blue;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.b-title {
+    color: red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.c-title {
+    color: green;
+}
+
+.e-title {
+    color: black;
+}"
+`;
