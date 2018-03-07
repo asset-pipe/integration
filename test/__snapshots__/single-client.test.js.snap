@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Bundled js feed from build server is deduped 1`] = `
-"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 'use strict';
 
 const sum = require('./d');
@@ -137,7 +137,7 @@ h1 {
 `;
 
 exports[`Client gets bundled js file from build server 1`] = `
-"(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\\"function\\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\\"Cannot find module '\\"+o+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\\"function\\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 'use strict';
 
 const { hello } = require('./lib');
@@ -272,12 +272,12 @@ exports[`Client gets uploaded js feed from build server 1`] = `
 Array [
   Object {
     "deps": Object {
-      "./lib": "e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea",
+      "./lib": "756bd25204025b80a24529f1c61b9ee2869064d92c8ce001f352150effecb172",
     },
     "entry": true,
     "expose": false,
     "file": "integration/assets/index.js",
-    "id": "a394b4261a9e731e26fbd22f93ca036b458ac46521826424134bdb32344c8ef8",
+    "id": "9a92a78fe0549160c6de69e707ffb3ce54aa13654019a014d6d6e0144f59b1c7",
     "index": 1,
     "indexDeps": Object {
       "./lib": 2,
@@ -293,7 +293,7 @@ console.log(hello());
   Object {
     "deps": Object {},
     "file": "integration/assets/lib.js",
-    "id": "e2e8400ede1e63e031135860fa638bac1a1dd8a0bccf4f0f5b283c439672c6ea",
+    "id": "756bd25204025b80a24529f1c61b9ee2869064d92c8ce001f352150effecb172",
     "index": 2,
     "indexDeps": Object {},
     "source": "'use strict';
@@ -315,8 +315,8 @@ Object {
 
 exports[`Client requests bundling of a js feed on build server 1`] = `
 Object {
-  "file": "8b37efa3105ca5e99dceeed61283bb3e547af6b2f5ad911eadb8b85b42885eee.js",
-  "uri": "http://127.0.0.1:7100/bundle/8b37efa3105ca5e99dceeed61283bb3e547af6b2f5ad911eadb8b85b42885eee.js",
+  "file": "97d7333aa39161bba7376398bd3527851539260d715e3bbd2a6f4e4e67217f8c.js",
+  "uri": "http://127.0.0.1:7100/bundle/97d7333aa39161bba7376398bd3527851539260d715e3bbd2a6f4e4e67217f8c.js",
 }
 `;
 
@@ -330,44 +330,47 @@ Object {
 
 exports[`Client uploads a js feed to build server 1`] = `
 Object {
-  "file": "5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6.json",
-  "id": "5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6",
-  "uri": "http://127.0.0.1:7100/feed/5c0319bc8def11e319cee258be0f2f8a970208042d6dc3073b40ef5d3a8098a6.json",
+  "file": "a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993.json",
+  "id": "a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993",
+  "uri": "http://127.0.0.1:7100/feed/a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993.json",
 }
 `;
 
 exports[`NODE_ENV variables replaced with hard coded values 1`] = `
-"(function e(t, n, r) {
-  function s(o, u) {
-    if (!n[o]) {
-      if (!t[o]) {
-        var a = typeof require == \\"function\\" && require;
-        if (!u && a) return a(o, !0);
-        if (i) return i(o, !0);
-        var f = new Error(\\"Cannot find module '\\" + o + \\"'\\");
-        throw ((f.code = \\"MODULE_NOT_FOUND\\"), f);
+"(function() {
+  function e(t, n, r) {
+    function s(o, u) {
+      if (!n[o]) {
+        if (!t[o]) {
+          var a = typeof require == \\"function\\" && require;
+          if (!u && a) return a(o, !0);
+          if (i) return i(o, !0);
+          var f = new Error(\\"Cannot find module '\\" + o + \\"'\\");
+          throw ((f.code = \\"MODULE_NOT_FOUND\\"), f);
+        }
+        var l = (n[o] = { exports: {} });
+        t[o][0].call(
+          l.exports,
+          function(e) {
+            var n = t[o][1][e];
+            return s(n ? n : e);
+          },
+          l,
+          l.exports,
+          e,
+          t,
+          n,
+          r
+        );
       }
-      var l = (n[o] = { exports: {} });
-      t[o][0].call(
-        l.exports,
-        function(e) {
-          var n = t[o][1][e];
-          return s(n ? n : e);
-        },
-        l,
-        l.exports,
-        e,
-        t,
-        n,
-        r
-      );
+      return n[o].exports;
     }
-    return n[o].exports;
+    var i = typeof require == \\"function\\" && require;
+    for (var o = 0; o < r.length; o++) s(r[o]);
+    return s;
   }
-  var i = typeof require == \\"function\\" && require;
-  for (var o = 0; o < r.length; o++) s(r[o]);
-  return s;
-})(
+  return e;
+})()(
   {
     1: [
       function(require, module, exports) {
@@ -587,16 +590,16 @@ exports[`NODE_ENV variables replaced with hard coded values 1`] = `
 "
 `;
 
-exports[`NODE_ENV variables trigger dead code elimination (DCE) 1`] = `"!function e(r,t,n){function o(u,c){if(!t[u]){if(!r[u]){var s=\\"function\\"==typeof require&&require;if(!c&&s)return s(u,!0);if(i)return i(u,!0);var f=new Error(\\"Cannot find module '\\"+u+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=t[u]={exports:{}};r[u][0].call(l.exports,function(e){var t=r[u][1][e];return o(t||e)},l,l.exports,e,r,t,n)}return t[u].exports}for(var i=\\"function\\"==typeof require&&require,u=0;u<n.length;u++)o(n[u]);return o}({1:[function(e,r,t){(function(e){console.log(\\"In prod!!\\")}).call(this,e(\\"./../node_modules/process/browser.js\\"))},{\\"./../node_modules/process/browser.js\\":2}],2:[function(e,r,t){var n,o,i=r.exports={};function u(){throw new Error(\\"setTimeout has not been defined\\")}function c(){throw new Error(\\"clearTimeout has not been defined\\")}function s(e){if(n===setTimeout)return setTimeout(e,0);if((n===u||!n)&&setTimeout)return n=setTimeout,setTimeout(e,0);try{return n(e,0)}catch(r){try{return n.call(null,e,0)}catch(r){return n.call(this,e,0)}}}!function(){try{n=\\"function\\"==typeof setTimeout?setTimeout:u}catch(e){n=u}try{o=\\"function\\"==typeof clearTimeout?clearTimeout:c}catch(e){o=c}}();var f,l=[],a=!1,h=-1;function p(){a&&f&&(a=!1,f.length?l=f.concat(l):h=-1,l.length&&d())}function d(){if(!a){var e=s(p);a=!0;for(var r=l.length;r;){for(f=l,l=[];++h<r;)f&&f[h].run();h=-1,r=l.length}f=null,a=!1,function(e){if(o===clearTimeout)return clearTimeout(e);if((o===c||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(e);try{o(e)}catch(r){try{return o.call(null,e)}catch(r){return o.call(this,e)}}}(e)}}function m(e,r){this.fun=e,this.array=r}function T(){}i.nextTick=function(e){var r=new Array(arguments.length-1);if(arguments.length>1)for(var t=1;t<arguments.length;t++)r[t-1]=arguments[t];l.push(new m(e,r)),1!==l.length||a||s(d)},m.prototype.run=function(){this.fun.apply(null,this.array)},i.title=\\"browser\\",i.browser=!0,i.env={},i.argv=[],i.version=\\"\\",i.versions={},i.on=T,i.addListener=T,i.once=T,i.off=T,i.removeListener=T,i.removeAllListeners=T,i.emit=T,i.prependListener=T,i.prependOnceListener=T,i.listeners=function(e){return[]},i.binding=function(e){throw new Error(\\"process.binding is not supported\\")},i.cwd=function(){return\\"/\\"},i.chdir=function(e){throw new Error(\\"process.chdir is not supported\\")},i.umask=function(){return 0}},{}]},{},[1]);"`;
+exports[`NODE_ENV variables trigger dead code elimination (DCE) 1`] = `"!function(){return function e(r,n,t){function o(u,c){if(!n[u]){if(!r[u]){var s=\\"function\\"==typeof require&&require;if(!c&&s)return s(u,!0);if(i)return i(u,!0);var f=new Error(\\"Cannot find module '\\"+u+\\"'\\");throw f.code=\\"MODULE_NOT_FOUND\\",f}var l=n[u]={exports:{}};r[u][0].call(l.exports,function(e){var n=r[u][1][e];return o(n||e)},l,l.exports,e,r,n,t)}return n[u].exports}for(var i=\\"function\\"==typeof require&&require,u=0;u<t.length;u++)o(t[u]);return o}}()({1:[function(e,r,n){(function(e){console.log(\\"In prod!!\\")}).call(this,e(\\"./../node_modules/process/browser.js\\"))},{\\"./../node_modules/process/browser.js\\":2}],2:[function(e,r,n){var t,o,i=r.exports={};function u(){throw new Error(\\"setTimeout has not been defined\\")}function c(){throw new Error(\\"clearTimeout has not been defined\\")}function s(e){if(t===setTimeout)return setTimeout(e,0);if((t===u||!t)&&setTimeout)return t=setTimeout,setTimeout(e,0);try{return t(e,0)}catch(r){try{return t.call(null,e,0)}catch(r){return t.call(this,e,0)}}}!function(){try{t=\\"function\\"==typeof setTimeout?setTimeout:u}catch(e){t=u}try{o=\\"function\\"==typeof clearTimeout?clearTimeout:c}catch(e){o=c}}();var f,l=[],a=!1,h=-1;function p(){a&&f&&(a=!1,f.length?l=f.concat(l):h=-1,l.length&&d())}function d(){if(!a){var e=s(p);a=!0;for(var r=l.length;r;){for(f=l,l=[];++h<r;)f&&f[h].run();h=-1,r=l.length}f=null,a=!1,function(e){if(o===clearTimeout)return clearTimeout(e);if((o===c||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(e);try{o(e)}catch(r){try{return o.call(null,e)}catch(r){return o.call(this,e)}}}(e)}}function m(e,r){this.fun=e,this.array=r}function T(){}i.nextTick=function(e){var r=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)r[n-1]=arguments[n];l.push(new m(e,r)),1!==l.length||a||s(d)},m.prototype.run=function(){this.fun.apply(null,this.array)},i.title=\\"browser\\",i.browser=!0,i.env={},i.argv=[],i.version=\\"\\",i.versions={},i.on=T,i.addListener=T,i.once=T,i.off=T,i.removeListener=T,i.removeAllListeners=T,i.emit=T,i.prependListener=T,i.prependOnceListener=T,i.listeners=function(e){return[]},i.binding=function(e){throw new Error(\\"process.binding is not supported\\")},i.cwd=function(){return\\"/\\"},i.chdir=function(e){throw new Error(\\"process.chdir is not supported\\")},i.umask=function(){return 0}},{}]},{},[1]);"`;
 
 exports[`Uploaded js feed from build server is not deduped 1`] = `
 Array [
   Object {
     "deps": Object {
-      "./d": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+      "./d": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     },
     "file": "integration/assets/a.js",
-    "id": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+    "id": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     "index": 1,
     "indexDeps": Object {
       "./d": 2,
@@ -611,7 +614,7 @@ sum(1, 2);
   Object {
     "deps": Object {},
     "file": "integration/assets/d.js",
-    "id": "a83a8f5a3f18d24f036db81d8660b46af30b75902500f405df28b8c368045add",
+    "id": "320f596434a079912e951a037302087837f241f2896be048e3ccd18d8e6888c9",
     "index": 2,
     "indexDeps": Object {},
     "source": "'use strict';
@@ -623,10 +626,10 @@ module.exports = function sum(a, b) {
   },
   Object {
     "deps": Object {
-      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+      "./a": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     },
     "file": "integration/assets/dup-1.js",
-    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "id": "c2d61953741441db400b08c0432c6cc3fafcf5e8073d15ac9aa30f443718819d",
     "index": 3,
     "indexDeps": Object {
       "./a": 1,
@@ -636,10 +639,10 @@ module.exports = function sum(a, b) {
   },
   Object {
     "deps": Object {
-      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+      "./a": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     },
     "file": "integration/assets/dup-2.js",
-    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "id": "3b988745ee60ea0d85d16f6e70684ddef88e13d39ce1be5e638af1dd78018aba",
     "index": 4,
     "indexDeps": Object {
       "./a": 1,
@@ -649,10 +652,10 @@ module.exports = function sum(a, b) {
   },
   Object {
     "deps": Object {
-      "./a": "3b0887ddfac98bb9c42ae30bdc580452e2798324bd16572e4635a7098e2139be",
+      "./a": "893576861db8f16e03815f618ca6838cb4af6fd867b10ffa5684e1f1fcd6b467",
     },
     "file": "integration/assets/dup-3.js",
-    "id": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+    "id": "9851e36fb1b5aed80b4d16a30a36c8a2872b9a1abd32b47ee3e1d5c4378c09bc",
     "index": 5,
     "indexDeps": Object {
       "./a": 1,
@@ -662,14 +665,14 @@ module.exports = function sum(a, b) {
   },
   Object {
     "deps": Object {
-      "./dup-1": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
-      "./dup-2": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
-      "./dup-3": "b584f0bd0b03f3d68d5db58c1960e4d7f2629152500aea2fb60bf686086e8f40",
+      "./dup-1": "c2d61953741441db400b08c0432c6cc3fafcf5e8073d15ac9aa30f443718819d",
+      "./dup-2": "3b988745ee60ea0d85d16f6e70684ddef88e13d39ce1be5e638af1dd78018aba",
+      "./dup-3": "9851e36fb1b5aed80b4d16a30a36c8a2872b9a1abd32b47ee3e1d5c4378c09bc",
     },
     "entry": true,
     "expose": false,
     "file": "integration/assets/duped-before-uploading.js",
-    "id": "9046c91ca8a6fe5989543e1dbb411f52700f8ee0b140ccf0c18b3fa3855bd1c0",
+    "id": "e1191d059ff0923159cbb3625c31de6f18ea5eea053844442512d8c86c6d918e",
     "index": 6,
     "indexDeps": Object {
       "./dup-1": 3,
