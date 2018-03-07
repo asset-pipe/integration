@@ -134,8 +134,8 @@ exports[`asset-pipe-sink-fs javascript bundle fetching 1`] = `Object {}`;
 
 exports[`asset-pipe-sink-fs javascript bundling 1`] = `
 Object {
-  "file": "2cfa0e02247eaf478f30078a443e90e83a7fe1b56489e63fb5f7a6be6f595168.js",
-  "uri": "/bundle/2cfa0e02247eaf478f30078a443e90e83a7fe1b56489e63fb5f7a6be6f595168.js",
+  "file": "530d60323a165e72ad9e342778b89cdb5ce8806c41c6f542eb4a1d912016e415.js",
+  "uri": "/bundle/530d60323a165e72ad9e342778b89cdb5ce8806c41c6f542eb4a1d912016e415.js",
 }
 `;
 
