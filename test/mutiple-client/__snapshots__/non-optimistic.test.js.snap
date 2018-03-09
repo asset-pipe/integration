@@ -134,14 +134,14 @@ arguments[4][2][0].apply(exports,arguments)
 exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
   "file": "95ba0b54346c7a87c7c54d4050c060f2bbeff6febba22820b9c2f84e129818fd.css",
-  "uri": "http://127.0.0.1:7200/bundle/95ba0b54346c7a87c7c54d4050c060f2bbeff6febba22820b9c2f84e129818fd.css",
+  "uri": "http://127.0.0.1:7201/bundle/95ba0b54346c7a87c7c54d4050c060f2bbeff6febba22820b9c2f84e129818fd.css",
 }
 `;
 
 exports[`Client requests bundling of a js feed on build server 1`] = `
 Object {
   "file": "1cc23f0627a1f999b550c9257e36817a0674a5b04ee00fe410ed719c7eaa68ca.js",
-  "uri": "http://127.0.0.1:7200/bundle/1cc23f0627a1f999b550c9257e36817a0674a5b04ee00fe410ed719c7eaa68ca.js",
+  "uri": "http://127.0.0.1:7201/bundle/1cc23f0627a1f999b550c9257e36817a0674a5b04ee00fe410ed719c7eaa68ca.js",
 }
 `;
 
@@ -313,17 +313,17 @@ Array [
   Object {
     "file": "ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb.json",
     "id": "ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb",
-    "uri": "http://127.0.0.1:7200/feed/ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb.json",
+    "uri": "http://127.0.0.1:7201/feed/ba6124be6a330d945bc8b2e4798cde45320f4dc16c471f866e9fc991fb89d8fb.json",
   },
   Object {
     "file": "515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47.json",
     "id": "515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47",
-    "uri": "http://127.0.0.1:7200/feed/515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47.json",
+    "uri": "http://127.0.0.1:7201/feed/515697d2559e49a972bdf09e0061435f845bef5c7236835ba675b3f2b1a95f47.json",
   },
   Object {
     "file": "d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb.json",
     "id": "d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb",
-    "uri": "http://127.0.0.1:7200/feed/d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb.json",
+    "uri": "http://127.0.0.1:7201/feed/d0f49e024300c60cfa5f540061a18a228b863e81cfdbe0307d8d8e3096976ddb.json",
   },
 ]
 `;
@@ -333,17 +333,17 @@ Array [
   Object {
     "file": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
     "id": "149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0",
-    "uri": "http://127.0.0.1:7200/feed/149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
+    "uri": "http://127.0.0.1:7201/feed/149967898754950cb6001298f67fbaa674420d8aa409c48a7ef2c5fb675843d0.json",
   },
   Object {
     "file": "5c86f64379d41363b24fdcad1470885ef07d0963594c497cbfb4b8706bbf63c5.json",
     "id": "5c86f64379d41363b24fdcad1470885ef07d0963594c497cbfb4b8706bbf63c5",
-    "uri": "http://127.0.0.1:7200/feed/5c86f64379d41363b24fdcad1470885ef07d0963594c497cbfb4b8706bbf63c5.json",
+    "uri": "http://127.0.0.1:7201/feed/5c86f64379d41363b24fdcad1470885ef07d0963594c497cbfb4b8706bbf63c5.json",
   },
   Object {
     "file": "3547b92e20a4f617ae053bc3494bafaa6adfca5364853e155db0dbe4de96a4dc.json",
     "id": "3547b92e20a4f617ae053bc3494bafaa6adfca5364853e155db0dbe4de96a4dc",
-    "uri": "http://127.0.0.1:7200/feed/3547b92e20a4f617ae053bc3494bafaa6adfca5364853e155db0dbe4de96a4dc.json",
+    "uri": "http://127.0.0.1:7201/feed/3547b92e20a4f617ae053bc3494bafaa6adfca5364853e155db0dbe4de96a4dc.json",
   },
 ]
 `;

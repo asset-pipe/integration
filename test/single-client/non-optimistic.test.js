@@ -3,7 +3,7 @@
 const { resolve } = require;
 const { spawn } = require('child_process');
 const Client = require('@asset-pipe/client');
-const buildServerUri = 'http://127.0.0.1:7100';
+const buildServerUri = 'http://127.0.0.1:7205';
 const client = new Client({ buildServerUri });
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
@@ -24,6 +24,7 @@ function startServer(env = 'development') {
         server = spawn('./node_modules/.bin/asset-pipe-server', [], {
             env: Object.assign({}, process.env, {
                 NODE_ENV: env,
+                PORT: 7205,
             }),
         });
         server.stdout.once('data', () => resolve());

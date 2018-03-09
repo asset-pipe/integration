@@ -309,14 +309,14 @@ module.exports.hello = function hello() {
 exports[`Client requests bundling of a css feed on build server 1`] = `
 Object {
   "file": "8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
-  "uri": "http://127.0.0.1:7100/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
+  "uri": "http://127.0.0.1:7205/bundle/8b30de6afdb4474cfd5c5df052408dc6ee170d243861c3fa63d246440b5f472d.css",
 }
 `;
 
 exports[`Client requests bundling of a js feed on build server 1`] = `
 Object {
   "file": "97d7333aa39161bba7376398bd3527851539260d715e3bbd2a6f4e4e67217f8c.js",
-  "uri": "http://127.0.0.1:7100/bundle/97d7333aa39161bba7376398bd3527851539260d715e3bbd2a6f4e4e67217f8c.js",
+  "uri": "http://127.0.0.1:7205/bundle/97d7333aa39161bba7376398bd3527851539260d715e3bbd2a6f4e4e67217f8c.js",
 }
 `;
 
@@ -324,7 +324,7 @@ exports[`Client uploads a css feed to build server 1`] = `
 Object {
   "file": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
   "id": "80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251",
-  "uri": "http://127.0.0.1:7100/feed/80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
+  "uri": "http://127.0.0.1:7205/feed/80c8a092aee329dd8cf852eaa081829bcac6f24bfa4ef11b90c94b9607244251.json",
 }
 `;
 
@@ -332,7 +332,7 @@ exports[`Client uploads a js feed to build server 1`] = `
 Object {
   "file": "a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993.json",
   "id": "a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993",
-  "uri": "http://127.0.0.1:7100/feed/a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993.json",
+  "uri": "http://127.0.0.1:7205/feed/a7fb04f1606e30f96517f844e45231be214d9e8d6547f4237e5a88348659f993.json",
 }
 `;
 
