@@ -51,7 +51,8 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "setupTestFrameworkScriptFile": "./jest.setup.js"
   },
   "lint-staged": {
     "*.js": [
