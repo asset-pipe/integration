@@ -13,7 +13,8 @@ const {
 
 async function startTestServer(sink) {
     const app = express();
-    const assets = new AssetServer(sink);
+    const assets = new AssetServer(sink, { env: 'development' });
+    console.log(assets.options.env);
     app.use(assets.router());
     return new Promise(resolve => {
         const server = app.listen(() => {

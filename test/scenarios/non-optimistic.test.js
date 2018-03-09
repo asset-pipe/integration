@@ -3,7 +3,7 @@
 const { resolve } = require;
 const { spawn } = require('child_process');
 const Client = require('@asset-pipe/client');
-const buildServerUri = 'http://127.0.0.1:7203';
+const buildServerUri = 'http://127.0.0.1:8250';
 const supertest = require('supertest');
 const request = supertest(buildServerUri);
 const httpProxy = require('http-proxy');
@@ -18,7 +18,7 @@ async function startServer(env = 'development') {
         server = spawn('./node_modules/.bin/asset-pipe-server', [], {
             env: Object.assign({}, process.env, {
                 NODE_ENV: env,
-                PORT: 7203,
+                PORT: 8251,
             }),
         });
         server.stdout.once('data', () => resolve());
@@ -35,16 +35,15 @@ async function startProxyServer() {
                 const random = Math.random() * 1500 + 200;
                 setTimeout(() => {
                     proxy.web(req, res, {
-                        target: 'http://127.0.0.1:8200',
+                        target: 'http://127.0.0.1:8251',
                     });
                 }, random);
             })
-            .listen(8300, resolve);
+            .listen(8250, resolve);
     });
 }
 
 beforeAll(async () => {
-    jest.setTimeout(10000);
     await startServer();
     return startProxyServer();
 });
@@ -97,7 +96,6 @@ async function layout(label, podlets) {
 
 test('Layout and 3 podlets - run 1 - initial', async () => {
     expect.assertions(2);
-    jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('a'), podlet('b'), podlet('c')]);
     const { jsFile, cssFile } = await layout('e', podlets);
 
@@ -115,7 +113,6 @@ test('Layout and 3 podlets - run 1 - initial', async () => {
 
 test('Layout and 3 podlets - run 2 - identical to run 1', async () => {
     expect.assertions(2);
-    jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('a'), podlet('b'), podlet('c')]);
     const { jsFile, cssFile } = await layout('e', podlets);
 
@@ -133,7 +130,6 @@ test('Layout and 3 podlets - run 2 - identical to run 1', async () => {
 
 test('Layout and 3 podlets - run 3 - swapped bundling order', async () => {
     expect.assertions(2);
-    jest.setTimeout(20000);
     const podlets = await Promise.all([podlet('b'), podlet('c'), podlet('a')]);
     const { jsFile, cssFile } = await layout('e', podlets);
 
@@ -151,7 +147,6 @@ test('Layout and 3 podlets - run 3 - swapped bundling order', async () => {
 
 test('Layout and 3 podlets - run 5 - js minification via NODE_ENV=production', async () => {
     expect.assertions(1);
-    jest.setTimeout(20000);
 
     server.kill();
     await startServer('production');
@@ -171,7 +166,6 @@ test('Layout and 3 podlets - run 5 - js minification via NODE_ENV=production', a
 
 test('Layout and 3 podlets - run 6 - minification and all entrypoints run', async () => {
     expect.assertions(3);
-    jest.setTimeout(20000);
 
     server.kill();
     await startServer('production');
