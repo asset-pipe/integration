@@ -18,6 +18,7 @@ function startServer(env = 'development') {
         server = spawn('./node_modules/.bin/asset-pipe-server', [], {
             env: Object.assign({}, process.env, {
                 NODE_ENV: env,
+                PORT: 7100,
             }),
         });
         server.stdout.once('data', () => resolve());
