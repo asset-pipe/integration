@@ -86,7 +86,7 @@
     "@asset-pipe/css-writer": "*",
     "@asset-pipe/js-reader": "*",
     "@asset-pipe/js-writer": "*",
-    "@asset-pipe/server": "*",
+    "@asset-pipe/server": ">=5.6.2",
     "@asset-pipe/sink-fs": "*",
     "@asset-pipe/sink-gcs": "*",
     "@asset-pipe/sink-mem": "*",
