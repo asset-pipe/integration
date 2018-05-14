@@ -83,7 +83,7 @@
   "dependencies": {
     "@asset-pipe/client": "*",
     "@asset-pipe/css-reader": "*",
-    "@asset-pipe/css-writer": "*",
+    "@asset-pipe/css-writer": ">=2.0.2",
     "@asset-pipe/js-reader": "*",
     "@asset-pipe/js-writer": "*",
     "@asset-pipe/server": "*",
