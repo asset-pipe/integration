@@ -87,7 +87,7 @@
     "@asset-pipe/js-reader": "*",
     "@asset-pipe/js-writer": "*",
     "@asset-pipe/server": "*",
-    "@asset-pipe/sink-fs": "*",
+    "@asset-pipe/sink-fs": ">=1.1.4",
     "@asset-pipe/sink-gcs": "*",
     "@asset-pipe/sink-mem": "*",
     "express": "^4.16.2",
