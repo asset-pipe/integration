@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/asset-pipe/integration#readme",
   "devDependencies": {
-    "@google-cloud/storage": "^1.4.0",
+    "@google-cloud/storage": "^5.0.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.9.0",
